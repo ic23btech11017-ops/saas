@@ -58,6 +58,18 @@
     border-color: var(--primary-200);
 }
 
+a.stat-card-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+a.stat-card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.12);
+    border-color: var(--primary-300, #A5B4FC);
+}
+
 .stat-icon {
     width: 48px;
     height: 48px;

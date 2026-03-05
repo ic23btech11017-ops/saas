@@ -47,7 +47,8 @@
 
                 <!-- KPI Stats -->
                 <div class="stats-grid">
-                    <div class="stat-card">
+                    <a href="/billing/invoices-list.html" class="stat-card stat-card-link"
+                        onclick="event.preventDefault();navigateTo('/billing/invoices-list.html',true)">
                         <div class="stat-icon indigo"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
                                 stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -60,8 +61,9 @@
                             <div class="stat-change up"><span class="badge badge-success badge-dot">+12.5%</span><span
                                     class="stat-compare">vs last month</span></div>
                         </div>
-                    </div>
-                    <div class="stat-card">
+                    </a>
+                    <a href="/subscriptions/subscriptions-list.html" class="stat-card stat-card-link"
+                        onclick="event.preventDefault();navigateTo('/subscriptions/subscriptions-list.html',true)">
                         <div class="stat-icon green"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
                                 stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -76,8 +78,9 @@
                             <div class="stat-change up"><span class="badge badge-success badge-dot">+8.2%</span><span
                                     class="stat-compare">vs last month</span></div>
                         </div>
-                    </div>
-                    <div class="stat-card">
+                    </a>
+                    <a href="/reports/reports-dashboard.html" class="stat-card stat-card-link"
+                        onclick="event.preventDefault();navigateTo('/reports/reports-dashboard.html',true)">
                         <div class="stat-icon amber"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
                                 stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -90,8 +93,9 @@
                             <div class="stat-change down"><span class="badge badge-danger badge-dot">-0.8%</span><span
                                     class="stat-compare">vs last month</span></div>
                         </div>
-                    </div>
-                    <div class="stat-card">
+                    </a>
+                    <a href="/accounts/index.html" class="stat-card stat-card-link"
+                        onclick="event.preventDefault();navigateTo('/accounts/index.html',true)">
                         <div class="stat-icon blue"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
                                 stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -106,7 +110,7 @@
                             <div class="stat-change up"><span class="badge badge-success badge-dot">+24.1%</span><span
                                     class="stat-compare">vs last month</span></div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Revenue Chart + Plan Distribution -->
