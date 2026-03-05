@@ -613,6 +613,12 @@
 .page-content {
     flex: 1;
     padding: var(--space-8);
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.page-content.page-fade-out {
+    opacity: 0;
 }
 
 /* ---------- Page Header ---------- */

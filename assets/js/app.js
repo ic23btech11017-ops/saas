@@ -10,15 +10,8 @@ function loadComponents() {
             .then(r => r.text())
             .then(t => {
                 sidebarEl.innerHTML = t;
-                // Highlight active sidebar link
-                document.querySelectorAll('.sidebar-link').forEach(l => {
-                    if (location.pathname.includes(l.dataset.page)) {
-                        l.style.background = 'var(--sidebar-active-bg,#EEF2FF)';
-                        l.style.color = 'var(--sidebar-active-text,#4F46E5)';
-                        l.style.fontWeight = '600';
-                        l.style.borderLeft = '3px solid var(--sidebar-active-border,#4F46E5)';
-                    }
-                });
+                highlightActiveSidebarLink();
+                initSPANavigation();
             });
     }
 
@@ -92,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadComponents();
     wireButtons();
     initTableSearch();
+    initSPANavigation();
 });
 
 /* ---- Global Table Search ---- */
@@ -740,4 +734,126 @@ function _modalDanger(title, message, submitType, submitLabel) {
         '  </div>',
         '</div>'
     ].join('\n');
+}
+
+/* ============================================
+   SPA-LIKE NAVIGATION
+   ============================================ */
+
+function highlightActiveSidebarLink() {
+    document.querySelectorAll('.sidebar-link').forEach(function (l) {
+        // Reset all links
+        l.style.background = '';
+        l.style.color = '';
+        l.style.fontWeight = '';
+        l.style.borderLeft = '';
+        // Highlight active
+        if (location.pathname.includes(l.dataset.page)) {
+            l.style.background = 'var(--sidebar-active-bg,#EEF2FF)';
+            l.style.color = 'var(--sidebar-active-text,#4F46E5)';
+            l.style.fontWeight = '600';
+            l.style.borderLeft = '3px solid var(--sidebar-active-border,#4F46E5)';
+        }
+    });
+}
+
+var _spaNavigating = false;
+
+function navigateTo(url, pushState) {
+    if (_spaNavigating) return;
+    _spaNavigating = true;
+
+    var pageContent = document.querySelector('.page-content');
+    if (!pageContent) {
+        // Fallback: full navigation
+        window.location.href = url;
+        return;
+    }
+
+    // Fade out current content
+    pageContent.classList.add('page-fade-out');
+
+    // After fade completes, fetch and swap
+    setTimeout(function () {
+        fetch(url)
+            .then(function (r) { return r.text(); })
+            .then(function (html) {
+                // Parse the fetched HTML
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(html, 'text/html');
+                var newContent = doc.querySelector('.page-content');
+                var newTitle = doc.querySelector('title');
+
+                if (newContent) {
+                    // Swap interior content
+                    pageContent.innerHTML = newContent.innerHTML;
+                    // Copy class name (e.g. dashboard-page, accounts-page)
+                    pageContent.className = newContent.className;
+                    // Ensure fade-out is on for the swap frame
+                    pageContent.classList.add('page-fade-out');
+                }
+
+                // Update title
+                if (newTitle) {
+                    document.title = newTitle.textContent;
+                }
+
+                // Push to browser history
+                if (pushState !== false) {
+                    history.pushState({ url: url }, document.title, url);
+                }
+
+                // Update sidebar highlight
+                highlightActiveSidebarLink();
+
+                // Re-wire interactive elements for new content
+                wireButtons();
+                initTableSearch();
+
+                // Fade in after a tiny paint frame
+                requestAnimationFrame(function () {
+                    pageContent.classList.remove('page-fade-out');
+                });
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+
+                _spaNavigating = false;
+            })
+            .catch(function () {
+                // On error, do a full navigation
+                window.location.href = url;
+            });
+    }, 200); // matches CSS transition duration
+}
+
+function initSPANavigation() {
+    document.querySelectorAll('.sidebar-link').forEach(function (link) {
+        // Remove any previously attached SPA handler
+        if (link._spaHandler) {
+            link.removeEventListener('click', link._spaHandler);
+        }
+        link._spaHandler = function (e) {
+            e.preventDefault();
+            var href = link.getAttribute('href');
+            if (href && href !== location.pathname) {
+                navigateTo(href, true);
+            }
+        };
+        link.addEventListener('click', link._spaHandler);
+    });
+}
+
+// Handle browser Back/Forward
+window.addEventListener('popstate', function (e) {
+    if (e.state && e.state.url) {
+        navigateTo(e.state.url, false);
+    } else {
+        navigateTo(location.pathname, false);
+    }
+});
+
+// Set initial history state
+if (history.replaceState) {
+    history.replaceState({ url: location.pathname }, document.title, location.pathname);
 }
