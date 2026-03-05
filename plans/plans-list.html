@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plans — SubsAdmin</title>
+    <meta name="description" content="Manage subscription plans — create, edit, and configure pricing tiers.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/tables.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content plans-list-page">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Plans</span>
+                </nav>
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Plans</h1>
+                            <p class="page-subtitle">Manage all subscription plans and pricing tiers.</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn btn-primary" onclick="location.href='plan-create.html'">+ Create
+                                Plan</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Summary Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon indigo"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Plans</div>
+                            <div class="stat-value">4</div>
+                            <div class="stat-change">
+                                <span class="badge badge-success badge-dot">3 active</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">⭐</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Most Popular</div>
+                            <div class="stat-value">Professional</div>
+                            <div class="stat-change">
+                                <span class="stat-compare">538 subscribers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon amber"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Avg Revenue / Plan</div>
+                            <div class="stat-value">$12,140</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+8.3%</span>
+                                <span class="stat-compare">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Upgrade Rate</div>
+                            <div class="stat-value">18.5%</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+3.2%</span>
+                                <span class="stat-compare">vs last quarter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plans Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">All Plans</div>
+                        <div class="table-toolbar">
+                            <div class="filter-search-wrap">
+                                <span class="search-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+                                <input type="text" class="filter-search" placeholder="Search plans..." />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-check"><input type="checkbox" /></th>
+                                    <th class="sortable">Plan Name</th>
+                                    <th class="sortable text-right">Monthly Price</th>
+                                    <th class="sortable text-right">Yearly Price</th>
+                                    <th>Subscribers</th>
+                                    <th>Features</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar"
+                                                style="background: linear-gradient(135deg, #A5B4FC, #818CF8)">S</div>
+                                            <div>
+                                                <div class="user-name">Starter</div>
+                                                <div class="user-email">Basic features for small teams</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">$29</td>
+                                    <td class="cell-amount text-right">$290</td>
+                                    <td>256</td>
+                                    <td><span class="badge badge-secondary">5 users, 10GB</span></td>
+                                    <td><span class="badge badge-success badge-dot">Active</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="table-action-btn edit" title="Edit"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                            <button class="table-action-btn" title="Duplicate"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar"
+                                                style="background: linear-gradient(135deg, #6366F1, #4F46E5)">P</div>
+                                            <div>
+                                                <div class="user-name">Professional</div>
+                                                <div class="user-email">Advanced features for growing teams</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">$99</td>
+                                    <td class="cell-amount text-right">$990</td>
+                                    <td>538</td>
+                                    <td><span class="badge badge-secondary">25 users, 100GB</span></td>
+                                    <td><span class="badge badge-success badge-dot">Active</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="table-action-btn edit" title="Edit"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                            <button class="table-action-btn" title="Duplicate"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar"
+                                                style="background: linear-gradient(135deg, #4F46E5, #3730A3)">E</div>
+                                            <div>
+                                                <div class="user-name">Enterprise</div>
+                                                <div class="user-email">Full-featured for large organizations</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">$399</td>
+                                    <td class="cell-amount text-right">$3,990</td>
+                                    <td>412</td>
+                                    <td><span class="badge badge-secondary">Unlimited users, 1TB</span></td>
+                                    <td><span class="badge badge-success badge-dot">Active</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="table-action-btn edit" title="Edit"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                            <button class="table-action-btn" title="Duplicate"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar"
+                                                style="background: linear-gradient(135deg, #C7D2FE, #A5B4FC)">F</div>
+                                            <div>
+                                                <div class="user-name">Free Trial</div>
+                                                <div class="user-email">14-day trial with Pro features</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">$0</td>
+                                    <td class="cell-amount text-right">—</td>
+                                    <td>78</td>
+                                    <td><span class="badge badge-secondary">25 users, 100GB</span></td>
+                                    <td><span class="badge badge-warning badge-dot">Trial</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="table-action-btn edit" title="Edit"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                            <button class="table-action-btn" title="Duplicate"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <div class="pagination">
+                            <span class="pagination-info">Showing 1–4 of 4 plans</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<aside class="sidebar"
+    style="position:fixed;top:0;left:0;width:260px;height:100vh;background:var(--sidebar-bg,#fff);border-right:1px solid var(--sidebar-border,#e5e7eb);z-index:100;overflow-y:auto;overflow-x:hidden;padding:0;">
+    <div
+        style="display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--sidebar-border,#e5e7eb);">
+        <div
+            style="width:36px;height:36px;background:var(--primary,#4F46E5);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;color:#fff;font-weight:700;">
+            S</div>
+        <div>
+            <div
+                style="font-size:1.125rem;font-weight:700;color:var(--sidebar-brand-text,#111827);letter-spacing:-0.02em;">
+                SubsAdmin</div>
+            <div style="font-size:0.6875rem;color:var(--sidebar-brand-tag,#6B7280);font-weight:400;">SaaS
+                Management</div>
+        </div>
+    </div>
+    <div style="padding:8px 12px 24px;">
+        <div
+            style="padding:8px 12px 4px;font-size:0.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--sidebar-section-title,#9CA3AF);">
+            Main</div>
+        <a href="/dashboard/index.html" class="sidebar-link" data-page="dashboard"
+            style="display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;font-size:0.8125rem;font-weight:500;color:var(--sidebar-text,#6B7280);text-decoration:none;margin-bottom:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+            <span>Dashboard</span>
+        </a>
+        <a href="/accounts/index.html" class="sidebar-link" data-page="accounts"
+            style="display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;font-size:0.8125rem;font-weight:500;color:var(--sidebar-text,#6B7280);text-decoration:none;margin-bottom:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <span>Accounts</span>
+        </a>
+        <a href="/plans/plans-list.html" class="sidebar-link" data-page="plans"
+            style="display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;font-size:0.8125rem;font-weight:500;color:var(--sidebar-text,#6B7280);text-decoration:none;margin-bottom:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+                <rect x="9" y="3" width="6" height="4" rx="1" />
+                <line x1="9" y1="12" x2="15" y2="12" />
+                <line x1="9" y1="16" x2="15" y2="16" />
+            </svg>
+            <span>Plans</span>
+        </a>
+        <a href="/subscriptions/subscriptions-list.html" class="sidebar-link" data-page="subscriptions"
+            style="display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;font-size:0.8125rem;font-weight:500;color:var(--sidebar-text,#6B7280);text-decoration:none;margin-bottom:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10" />
+                <polyline points="1 20 1 14 7 14" />
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+            </svg>
+            <span>Subscriptions</span>
+        </a>
+        <div
+            style="padding:12px 12px 4px;font-size:0.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--sidebar-section-title,#9CA3AF);">
+            Finance</div>
+        <a href="/usage/usage-overview.html" class="sidebar-link" data-page="usage"
+            style="display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;font-size:0.8125rem;font-weight:500;color:var(--sidebar-text,#6B7280);text-decoration:none;margin-bottom:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+            <span>Usage</span>
+        </a>
+        <a href="/billing/invoices-list.html" class="sidebar-link" data-page="billing"
+            style="display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;font-size:0.8125rem;font-weight:500;color:var(--sidebar-text,#6B7280);text-decoration:none;margin-bottom:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                <line x1="1" y1="10" x2="23" y2="10" />
+            </svg>
+            <span>Billing</span>
+        </a>
+        <a href="/reports/reports-dashboard.html" class="sidebar-link" data-page="reports"
+            style="display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;font-size:0.8125rem;font-weight:500;color:var(--sidebar-text,#6B7280);text-decoration:none;margin-bottom:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+            </svg>
+            <span>Reports</span>
+        </a>
+        <div
+            style="padding:12px 12px 4px;font-size:0.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--sidebar-section-title,#9CA3AF);">
+            System</div>
+        <a href="/settings/settings.html" class="sidebar-link" data-page="settings"
+            style="display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;font-size:0.8125rem;font-weight:500;color:var(--sidebar-text,#6B7280);text-decoration:none;margin-bottom:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+            <span>Settings</span>
+        </a>
+    </div>
+</aside>

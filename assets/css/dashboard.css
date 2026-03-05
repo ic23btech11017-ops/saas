@@ -1,0 +1,895 @@
+/* ============================================
+   DASHBOARD.CSS — Dashboard-Specific Styles
+   ============================================ */
+
+/* ---------- Dashboard Stats Grid ---------- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+}
+
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Stat Compare Text ---------- */
+.stat-compare {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* ---------- Dashboard Grid ---------- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Full Width Chart ---------- */
+.full-width-chart {
+    margin-bottom: var(--space-6);
+}
+
+/* ---------- Table Section ---------- */
+.table-section {
+    margin-bottom: var(--space-6);
+}
+
+/* ---------- Chart Cards ---------- */
+.chart-card {
+    overflow: hidden;
+}
+
+.chart-card .card-header {
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* ---------- Chart Legend ---------- */
+.chart-legend {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-dot.indigo {
+    background: var(--primary);
+}
+
+.legend-dot.green {
+    background: var(--success);
+}
+
+.legend-dot.red {
+    background: var(--danger);
+}
+
+.legend-dot.amber {
+    background: var(--warning);
+}
+
+/* ---------- CSS Bar Chart ---------- */
+.chart-bar-container {
+    display: flex;
+    gap: var(--space-2);
+    height: 240px;
+    align-items: stretch;
+}
+
+.chart-y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 var(--space-2) 28px 0;
+    min-width: 40px;
+    text-align: right;
+}
+
+.chart-y-axis span {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.chart-bar-group {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: var(--space-3);
+    padding-bottom: 28px;
+    height: 100%;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+    border-left: 1px solid var(--border-light);
+}
+
+/* Horizontal grid lines */
+.chart-bar-group::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 28px;
+    background: repeating-linear-gradient(to bottom,
+            transparent,
+            transparent calc(20% - 1px),
+            var(--border-light) calc(20% - 1px),
+            var(--border-light) 20%);
+    pointer-events: none;
+}
+
+.chart-bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.chart-bar-col.dual {
+    gap: 0;
+}
+
+.chart-bar-pair {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    flex: 1;
+}
+
+.chart-bar {
+    width: 24px;
+    border-radius: 4px 4px 0 0;
+    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    min-height: 4px;
+}
+
+.chart-bar:hover {
+    opacity: 0.85;
+    filter: brightness(1.08);
+}
+
+.chart-bar.primary {
+    background: linear-gradient(180deg, var(--primary) 0%, var(--primary-700) 100%);
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+}
+
+.chart-bar.accent {
+    background: linear-gradient(180deg, var(--success) 0%, #047857 100%);
+    box-shadow: 0 2px 4px rgba(5, 150, 105, 0.2);
+    width: 20px;
+}
+
+.chart-bar.success {
+    background: linear-gradient(180deg, var(--success) 0%, #047857 100%);
+    box-shadow: 0 2px 4px rgba(5, 150, 105, 0.15);
+}
+
+.chart-bar.danger {
+    background: linear-gradient(180deg, var(--danger) 0%, #B91C1C 100%);
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.15);
+}
+
+.chart-bar-label {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    position: absolute;
+    bottom: -24px;
+    white-space: nowrap;
+}
+
+/* Dual chart adjustments */
+.dual-chart .chart-bar-container {
+    height: 200px;
+}
+
+.dual-chart .chart-bar {
+    width: 18px;
+}
+
+/* ---------- Donut Chart ---------- */
+.donut-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-4) 0;
+    margin-bottom: var(--space-4);
+}
+
+.donut-ring {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(#4F46E5 0deg 115deg,
+            #6366F1 115deg 266deg,
+            #A5B4FC 266deg 338deg,
+            #C7D2FE 338deg 360deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+.donut-center {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--bg-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.donut-total {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.donut-label {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ---------- Plan List ---------- */
+.plan-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.plan-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    transition: background 0.15s ease;
+}
+
+.plan-item:hover {
+    background: var(--gray-50);
+}
+
+.plan-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.plan-name {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.plan-count {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 36px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.plan-pct {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    min-width: 32px;
+    text-align: right;
+}
+
+/* ---------- Table Toolbar ---------- */
+.table-toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* ---------- Text alignment ---------- */
+.text-right {
+    text-align: right !important;
+}
+
+/* ---------- Activity Feed ---------- */
+.activity-feed {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-item {
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    position: relative;
+}
+
+.activity-item:not(:last-child) {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.activity-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.activity-dot.green {
+    background: var(--success);
+}
+
+.activity-dot.amber {
+    background: var(--warning);
+}
+
+.activity-dot.red {
+    background: var(--danger);
+}
+
+.activity-body {
+    flex: 1;
+}
+
+.activity-text {
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.activity-text strong {
+    font-weight: 600;
+}
+
+.activity-time {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* ---------- Quick Actions ---------- */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+.quick-action-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    background: var(--bg-white);
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.quick-action-card:hover {
+    border-color: var(--primary-200);
+    background: var(--primary-50);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.quick-action-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+}
+
+.quick-action-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.quick-action-desc {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+}
+
+/* ---------- Report Cards ---------- */
+.report-card {
+    background: var(--bg-white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    padding: var(--space-6);
+    transition: var(--transition);
+}
+
+.report-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.report-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.report-card-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ---------- KPI Mini Cards ---------- */
+.kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+.kpi-card {
+    text-align: center;
+    padding: var(--space-4);
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+}
+
+.kpi-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.kpi-label {
+    font-size: 0.6875rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+}
+
+/* ---------- Detail Header ---------- */
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-6);
+    background: var(--bg-white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    margin-bottom: var(--space-6);
+}
+
+.detail-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.detail-info h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+}
+
+.detail-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+.detail-meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.detail-actions {
+    margin-left: auto;
+    display: flex;
+    gap: var(--space-3);
+}
+
+/* ---------- Invoice Styles ---------- */
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--space-8);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.invoice-brand h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--space-1);
+}
+
+.invoice-info {
+    text-align: right;
+}
+
+.invoice-info .invoice-number {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.invoice-parties {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    padding: var(--space-6) var(--space-8);
+}
+
+.invoice-party h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
+}
+
+.invoice-party p {
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    line-height: 1.8;
+}
+
+.invoice-totals {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: var(--space-6) var(--space-8);
+}
+
+.invoice-total-row {
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+    padding: var(--space-2) 0;
+    font-size: 0.875rem;
+}
+
+.invoice-total-row.grand {
+    border-top: 2px solid var(--text-primary);
+    padding-top: var(--space-3);
+    margin-top: var(--space-2);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+
+
+/* ---------- Info List (key→value rows) ---------- */
+.info-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) 0;
+    gap: var(--space-4);
+}
+
+.info-row:not(:last-child) {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.info-label {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+.info-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Plan Distribution Bars ---------- */
+.plan-dist-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.plan-dist-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.plan-dist-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8125rem;
+}
+
+.plan-dist-name {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.plan-dist-pct {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.plan-dist-bar {
+    height: 8px;
+    background: var(--gray-100);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.plan-dist-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Team List ---------- */
+.team-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    transition: background 0.15s ease;
+}
+
+.team-member:hover {
+    background: var(--gray-50);
+}
+
+/* ---------- Form Row (side-by-side fields) ---------- */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+/* ---------- Checkbox Label ---------- */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+/* ---------- Filter Select ---------- */
+.filter-select {
+    height: 36px;
+    padding: 0 var(--space-8) 0 var(--space-3);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-white);
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+}
+
+/* ---------- Page Header Top ---------- */
+.page-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-4);
+}
+
+.toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* ---------- Form Card ---------- */
+.form-card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.form-card label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.form-card input[type="text"],
+.form-card input[type="number"],
+.form-card select,
+.form-card textarea {
+    width: 100%;
+    height: 40px;
+    padding: 0 var(--space-3);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    background: var(--bg-white);
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+.form-card textarea {
+    height: auto;
+    min-height: 80px;
+    padding: var(--space-3);
+    resize: vertical;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+.form-card .card-footer .form-actions {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* ---------- Bar animation on load ---------- */
+@keyframes bar-grow {
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+.chart-bar {
+    transform-origin: bottom;
+    animation: bar-grow 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.chart-bar-col:nth-child(1) .chart-bar {
+    animation-delay: 0.05s;
+}
+
+.chart-bar-col:nth-child(2) .chart-bar {
+    animation-delay: 0.1s;
+}
+
+.chart-bar-col:nth-child(3) .chart-bar {
+    animation-delay: 0.15s;
+}
+
+.chart-bar-col:nth-child(4) .chart-bar {
+    animation-delay: 0.2s;
+}
+
+.chart-bar-col:nth-child(5) .chart-bar {
+    animation-delay: 0.25s;
+}
+
+.chart-bar-col:nth-child(6) .chart-bar {
+    animation-delay: 0.3s;
+}
+
+.chart-bar-col:nth-child(7) .chart-bar {
+    animation-delay: 0.35s;
+}
+
+.chart-bar-col:nth-child(8) .chart-bar {
+    animation-delay: 0.4s;
+}
+
+/* ---------- Donut animation ---------- */
+@keyframes donut-spin {
+    from {
+        transform: rotate(-90deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.donut-ring {
+    animation: donut-spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Plan — SubsAdmin</title>
+    <meta name="description"
+        content="Create a new subscription plan with pricing, features, and billing configuration." />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/tables.css" />
+    <link rel="stylesheet" href="../assets/css/forms.css" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+</head>
+
+<body>
+    <div class="app">
+        <div id="sidebar-container"></div>
+        <div class="main-wrapper">
+            <div id="topbar-container"></div>
+
+            <main class="page-content">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item"><a href="index.html">Plans</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Create Plan</span>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Create New Plan</h1>
+                            <p class="page-subtitle">Define a new subscription plan with pricing and features.</p>
+                        </div>
+                        <a href="index.html" class="btn btn-secondary">← Back to Plans</a>
+                    </div>
+                </div>
+
+                <div class="grid grid-2">
+                    <!-- Main Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Plan Details</h3>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <!-- Basic Info -->
+                                <div class="form-section">
+                                    <h4 class="form-section-title">Basic Information</h4>
+                                    <p class="form-section-desc">Enter the core details for this plan.</p>
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">Plan Name <span class="required">*</span></label>
+                                            <input type="text" class="form-input" placeholder="e.g., Business Pro" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Plan Code</label>
+                                            <input type="text" class="form-input" placeholder="e.g., business-pro" />
+                                            <span class="form-hint">Unique identifier used in API calls</span>
+                                        </div>
+                                        <div class="form-group full-width">
+                                            <label class="form-label">Description</label>
+                                            <textarea class="form-textarea" rows="3"
+                                                placeholder="Describe what this plan offers..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pricing -->
+                                <div class="form-section">
+                                    <h4 class="form-section-title">Pricing</h4>
+                                    <p class="form-section-desc">Set the price and billing interval.</p>
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">Price <span class="required">*</span></label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-input" placeholder="99.00"
+                                                    step="0.01" />
+                                                <span class="input-addon">USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Billing Interval <span
+                                                    class="required">*</span></label>
+                                            <select class="form-select">
+                                                <option>Monthly</option>
+                                                <option>Quarterly</option>
+                                                <option>Yearly</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Setup Fee</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-input" placeholder="0.00"
+                                                    step="0.01" />
+                                                <span class="input-addon">USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Trial Period (Days)</label>
+                                            <input type="number" class="form-input" placeholder="14" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Limits -->
+                                <div class="form-section">
+                                    <h4 class="form-section-title">Plan Limits</h4>
+                                    <p class="form-section-desc">Configure usage limits for this plan.</p>
+                                    <div class="form-grid cols-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Team Members</label>
+                                            <input type="number" class="form-input" placeholder="e.g., 25" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Storage (GB)</label>
+                                            <input type="number" class="form-input" placeholder="e.g., 50" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">API Calls / Month</label>
+                                            <input type="number" class="form-input" placeholder="e.g., 250000" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Features -->
+                                <div class="form-section">
+                                    <h4 class="form-section-title">Features</h4>
+                                    <p class="form-section-desc">Select the features included in this plan.</p>
+                                    <div class="form-grid">
+                                        <div class="form-check">
+                                            <input type="checkbox" id="feat-email" checked />
+                                            <label class="form-check-label" for="feat-email">Email Support</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="feat-priority" />
+                                            <label class="form-check-label" for="feat-priority">Priority Support</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="feat-branding" />
+                                            <label class="form-check-label" for="feat-branding">Custom Branding</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="feat-api" checked />
+                                            <label class="form-check-label" for="feat-api">API Access</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="feat-sso" />
+                                            <label class="form-check-label" for="feat-sso">SSO / SAML</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="feat-manager" />
+                                            <label class="form-check-label" for="feat-manager">Dedicated Account
+                                                Manager</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="feat-analytics" checked />
+                                            <label class="form-check-label" for="feat-analytics">Advanced
+                                                Analytics</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="feat-webhooks" />
+                                            <label class="form-check-label" for="feat-webhooks">Webhooks</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Status -->
+                                <div class="form-section">
+                                    <h4 class="form-section-title">Status</h4>
+                                    <div style="display:flex; align-items:center; gap: var(--space-4);">
+                                        <label class="toggle">
+                                            <input type="checkbox" checked />
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                        <div>
+                                            <div class="font-medium text-sm">Active</div>
+                                            <div class="text-xs text-secondary">Plan is visible and available for new
+                                                subscriptions</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Actions -->
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-primary">Create Plan</button>
+                                    <button type="button" class="btn btn-secondary">Save as Draft</button>
+                                    <a href="index.html" class="btn btn-ghost">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Preview Sidebar -->
+                    <div>
+                        <div class="card" style="position:sticky; top: calc(var(--topbar-height) + var(--space-8));">
+                            <div class="card-header">
+                                <h3 class="card-title">Plan Preview</h3>
+                            </div>
+                            <div class="card-body" style="text-align:center;">
+                                <div
+                                    style="display:inline-flex; width:56px; height:56px; border-radius:var(--radius); background:var(--primary-50); align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:var(--space-4);">
+                                    📦</div>
+                                <h3 style="font-size:1.125rem; font-weight:700; margin-bottom:var(--space-1);">Plan Name
+                                </h3>
+                                <p class="text-secondary text-sm" style="margin-bottom:var(--space-4);">Plan description
+                                    appears here</p>
+                                <div
+                                    style="font-size:1.75rem; font-weight:700; color:var(--primary); margin-bottom:var(--space-1);">
+                                    $0<span class="text-sm font-normal text-muted">/mo</span></div>
+                                <div class="divider"></div>
+                                <div style="text-align:left; font-size:0.8125rem; color:var(--text-secondary);">
+                                    <p style="margin-bottom:var(--space-2);">Features will appear here based on your
+                                        selections above.</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="alert alert-info" style="margin-bottom:0;">
+                                    💡 Fill in the form to see a live preview of your pricing card.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

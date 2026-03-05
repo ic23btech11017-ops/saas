@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings — SubsAdmin</title>
+    <meta name="description"
+        content="Configure system-wide settings for billing, tax, currency, and admin preferences.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content settings-page">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Settings</span>
+                </nav>
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Settings</h1>
+                            <p class="page-subtitle">Configure system-wide options and preferences.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Tabs -->
+                <div class="tabs">
+                    <button class="tab active" onclick="showSettingsTab('general')">General</button>
+                    <button class="tab" onclick="showSettingsTab('billing')">Billing</button>
+                    <button class="tab" onclick="showSettingsTab('notifications')">Notifications</button>
+                    <button class="tab" onclick="showSettingsTab('team')">Team</button>
+                </div>
+
+                <!-- General Settings -->
+                <div class="settings-section" id="tab-general">
+                    <div class="dashboard-grid">
+                        <div>
+                            <form class="card form-card">
+                                <div class="card-header">
+                                    <div class="card-title">Company Settings</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="company-name">Company Name</label>
+                                        <input type="text" id="company-name" name="company-name" value="SubsAdmin Inc">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="tax">Tax Rate (%)</label>
+                                            <input type="number" id="tax" name="tax" min="0" max="100" value="10">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="currency">Default Currency</label>
+                                            <select id="currency" name="currency">
+                                                <option value="USD" selected>USD ($)</option>
+                                                <option value="EUR">EUR (€)</option>
+                                                <option value="GBP">GBP (£)</option>
+                                                <option value="INR">INR (₹)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="timezone">Timezone</label>
+                                        <select id="timezone" name="timezone">
+                                            <option value="US/Pacific">Pacific Time (US)</option>
+                                            <option value="US/Eastern" selected>Eastern Time (US)</option>
+                                            <option value="Europe/London">London (GMT)</option>
+                                            <option value="Asia/Kolkata">India (IST)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="date-format">Date Format</label>
+                                        <select id="date-format" name="date-format">
+                                            <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                                            <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                            <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="form-actions">
+                                        <button class="btn btn-primary" type="submit"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Save Settings</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form class="card form-card" style="margin-top: var(--space-6);">
+                                <div class="card-header">
+                                    <div class="card-title">Billing Defaults</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="billing-cycle">Default Billing Cycle</label>
+                                            <select id="billing-cycle" name="billing-cycle">
+                                                <option value="monthly" selected>Monthly</option>
+                                                <option value="yearly">Yearly</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="payment-terms">Payment Terms</label>
+                                            <select id="payment-terms" name="payment-terms">
+                                                <option value="net-15">Net 15</option>
+                                                <option value="net-30" selected>Net 30</option>
+                                                <option value="net-60">Net 60</option>
+                                                <option value="due-on-receipt">Due on Receipt</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="grace-period">Grace Period (Days)</label>
+                                        <input type="number" id="grace-period" name="grace-period" min="0" max="30"
+                                            value="7">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="auto-retry" name="auto-retry" checked>
+                                            <span>Auto-retry failed payments</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="auto-invoice" name="auto-invoice" checked>
+                                            <span>Generate invoices automatically</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="form-actions">
+                                        <button class="btn btn-primary" type="submit"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Save Billing</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Right Column: Admin & Danger Zone -->
+                        <div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">Admin Users</div>
+                                    <button class="btn btn-ghost btn-sm">+ Add</button>
+                                </div>
+                                <div class="card-body">
+                                    <div class="team-list">
+                                        <div class="team-member">
+                                            <div class="cell-user">
+                                                <div class="user-avatar">JM</div>
+                                                <div>
+                                                    <div class="user-name">John Mitchell</div>
+                                                    <div class="user-email">admin@example.com</div>
+                                                </div>
+                                            </div>
+                                            <span class="badge badge-primary">Owner</span>
+                                        </div>
+                                        <div class="team-member">
+                                            <div class="cell-user">
+                                                <div class="user-avatar">SC</div>
+                                                <div>
+                                                    <div class="user-name">Sarah Chen</div>
+                                                    <div class="user-email">sarah@example.com</div>
+                                                </div>
+                                            </div>
+                                            <span class="badge badge-secondary">Admin</span>
+                                        </div>
+                                        <div class="team-member">
+                                            <div class="cell-user">
+                                                <div class="user-avatar">RK</div>
+                                                <div>
+                                                    <div class="user-name">Raj Kumar</div>
+                                                    <div class="user-email">raj@example.com</div>
+                                                </div>
+                                            </div>
+                                            <span class="badge badge-secondary">Billing</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card" style="margin-top: var(--space-6); border-color: var(--danger-200);">
+                                <div class="card-header" style="background: var(--danger-50);">
+                                    <div class="card-title" style="color: var(--danger-600);"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Danger Zone</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="info-list">
+                                        <div class="info-row">
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 0.875rem;">Export All Data
+                                                </div>
+                                                <div style="font-size: 0.8125rem; color: var(--text-secondary);">
+                                                    Download a complete data export</div>
+                                            </div>
+                                            <button class="btn btn-secondary btn-sm">Export</button>
+                                        </div>
+                                        <div class="info-row">
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 0.875rem;">Reset System</div>
+                                                <div style="font-size: 0.8125rem; color: var(--text-secondary);">Reset
+                                                    all data to factory defaults</div>
+                                            </div>
+                                            <button class="btn btn-danger btn-sm">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

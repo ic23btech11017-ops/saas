@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports — SubsAdmin</title>
+    <meta name="description" content="Key SaaS metrics and analytics — MRR, ARR, ARPU, churn, and growth trends.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/tables.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content reports-dashboard-page">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Reports</span>
+                </nav>
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Reports</h1>
+                            <p class="page-subtitle">Key metrics and analytics for your SaaS business.</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <select class="filter-select" style="margin-right: var(--space-2)">
+                                <option>Last 30 days</option>
+                                <option>Last 90 days</option>
+                                <option>Last 12 months</option>
+                                <option>All time</option>
+                            </select>
+                            <button class="btn btn-secondary"><svg viewBox="0 0 24 24" width="14" height="14"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg> Export Report</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPI Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon indigo"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="18" y1="20" x2="18" y2="10" />
+                                <line x1="12" y1="20" x2="12" y2="4" />
+                                <line x1="6" y1="20" x2="6" y2="14" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">MRR</div>
+                            <div class="stat-value">$48,560</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+12.5%</span>
+                                <span class="stat-compare">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                <polyline points="17 6 23 6 23 12" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">ARR</div>
+                            <div class="stat-value">$582,720</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+15.2%</span>
+                                <span class="stat-compare">year over year</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon amber"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">ARPU</div>
+                            <div class="stat-value">$38</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+$3</span>
+                                <span class="stat-compare">vs last quarter</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="23 18 13.5 8.5 8.5 13.5 1 6" />
+                                <polyline points="17 18 23 18 23 12" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Churn Rate</div>
+                            <div class="stat-value">2.4%</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">-0.6%</span>
+                                <span class="stat-compare">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MRR Growth Chart -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <div class="card-title">MRR Growth (Last 8 Months)</div>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot indigo"></span> MRR</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-bar-container">
+                            <div class="chart-y-axis">
+                                <span>$50K</span><span>$40K</span><span>$30K</span><span>$20K</span><span>$10K</span><span>$0</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:55%"></div>
+                                    <span class="chart-bar-label">Jul</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:58%"></div>
+                                    <span class="chart-bar-label">Aug</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:62%"></div>
+                                    <span class="chart-bar-label">Sep</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:68%"></div>
+                                    <span class="chart-bar-label">Oct</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:72%"></div>
+                                    <span class="chart-bar-label">Nov</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:78%"></div>
+                                    <span class="chart-bar-label">Dec</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:86%"></div>
+                                    <span class="chart-bar-label">Jan</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:97%"></div>
+                                    <span class="chart-bar-label">Feb</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Customers Chart -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <div class="card-title">Active Customers Trend (Last 8 Months)</div>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot green"></span> Active</span>
+                            <span class="legend-item"><span class="legend-dot"
+                                    style="background: var(--danger-500)"></span> Churned</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-bar-container">
+                            <div class="chart-y-axis">
+                                <span>200</span><span>160</span><span>120</span><span>80</span><span>40</span><span>0</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar accent" style="height:60%"></div>
+                                    <div class="chart-bar danger" style="height:8%"></div>
+                                    <span class="chart-bar-label">Jul</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar accent" style="height:64%"></div>
+                                    <div class="chart-bar danger" style="height:6%"></div>
+                                    <span class="chart-bar-label">Aug</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar accent" style="height:68%"></div>
+                                    <div class="chart-bar danger" style="height:7%"></div>
+                                    <span class="chart-bar-label">Sep</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar accent" style="height:70%"></div>
+                                    <div class="chart-bar danger" style="height:5%"></div>
+                                    <span class="chart-bar-label">Oct</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar accent" style="height:74%"></div>
+                                    <div class="chart-bar danger" style="height:6%"></div>
+                                    <span class="chart-bar-label">Nov</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar accent" style="height:78%"></div>
+                                    <div class="chart-bar danger" style="height:4%"></div>
+                                    <span class="chart-bar-label">Dec</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar accent" style="height:82%"></div>
+                                    <div class="chart-bar danger" style="height:5%"></div>
+                                    <span class="chart-bar-label">Jan</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar accent" style="height:88%"></div>
+                                    <div class="chart-bar danger" style="height:3%"></div>
+                                    <span class="chart-bar-label">Feb</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Churn Analysis Chart -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <div class="card-title">Churn Analysis (Last 8 Months)</div>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot"
+                                    style="background: var(--danger-500)"></span> Monthly Churn Rate</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-bar-container">
+                            <div class="chart-y-axis">
+                                <span>3.0%</span><span>2.5%</span><span>2.0%</span><span>1.5%</span><span>1.0%</span><span>0%</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar danger" style="height:35%"></div>
+                                    <span class="chart-bar-label">Jul</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar danger" style="height:48%"></div>
+                                    <span class="chart-bar-label">Aug</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar danger" style="height:42%"></div>
+                                    <span class="chart-bar-label">Sep</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar danger" style="height:55%"></div>
+                                    <span class="chart-bar-label">Oct</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar danger" style="height:50%"></div>
+                                    <span class="chart-bar-label">Nov</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar danger" style="height:78%"></div>
+                                    <span class="chart-bar-label">Dec</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar danger" style="height:65%"></div>
+                                    <span class="chart-bar-label">Jan</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar danger" style="height:60%"></div>
+                                    <span class="chart-bar-label">Feb</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metrics Details -->
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Revenue Breakdown</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-list">
+                                <div class="info-row">
+                                    <span class="info-label">New Subscriptions</span>
+                                    <span class="info-value">$8,420</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Renewals</span>
+                                    <span class="info-value">$32,650</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Upgrades</span>
+                                    <span class="info-value">$5,890</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Downgrades</span>
+                                    <span class="info-value">-$1,200</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Churned</span>
+                                    <span class="info-value">-$2,800</span>
+                                </div>
+                                <div class="info-row"
+                                    style="border-top: 2px solid var(--border-color); padding-top: var(--space-3); font-weight: 600;">
+                                    <span class="info-label">Net New MRR</span>
+                                    <span class="info-value" style="color: var(--success-600)">+$10,310</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Plan Distribution</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="plan-dist-list">
+                                <div class="plan-dist-item">
+                                    <div class="plan-dist-header">
+                                        <span class="plan-dist-name">Enterprise</span>
+                                        <span class="plan-dist-pct">32%</span>
+                                    </div>
+                                    <div class="plan-dist-bar">
+                                        <div class="plan-dist-fill" style="width:32%; background: var(--primary-600)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="plan-dist-item">
+                                    <div class="plan-dist-header">
+                                        <span class="plan-dist-name">Professional</span>
+                                        <span class="plan-dist-pct">42%</span>
+                                    </div>
+                                    <div class="plan-dist-bar">
+                                        <div class="plan-dist-fill" style="width:42%; background: var(--primary-400)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="plan-dist-item">
+                                    <div class="plan-dist-header">
+                                        <span class="plan-dist-name">Starter</span>
+                                        <span class="plan-dist-pct">20%</span>
+                                    </div>
+                                    <div class="plan-dist-bar">
+                                        <div class="plan-dist-fill" style="width:20%; background: var(--primary-200)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="plan-dist-item">
+                                    <div class="plan-dist-header">
+                                        <span class="plan-dist-name">Free Trial</span>
+                                        <span class="plan-dist-pct">6%</span>
+                                    </div>
+                                    <div class="plan-dist-bar">
+                                        <div class="plan-dist-fill" style="width:6%; background: var(--gray-300)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Breakdown Table -->
+                <div class="card table-section">
+                    <div class="card-header">
+                        <div class="card-title">Monthly Breakdown</div>
+                        <div class="table-toolbar">
+                            <div class="filter-search-wrap">
+                                <span class="search-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8" />
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                    </svg></span>
+                                <input type="text" class="filter-search" placeholder="Search months..." />
+                            </div>
+                            <button class="btn btn-secondary btn-sm"><svg viewBox="0 0 24 24" width="14" height="14"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg> Export CSV</button>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table striped">
+                            <thead>
+                                <tr>
+                                    <th class="sortable">Month</th>
+                                    <th class="sortable">MRR</th>
+                                    <th class="sortable text-right">New MRR</th>
+                                    <th class="sortable text-right">Churned MRR</th>
+                                    <th class="sortable text-right">Net</th>
+                                    <th class="sortable">Subs</th>
+                                    <th class="sortable">Churn</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-medium">Feb 2026</td>
+                                    <td class="cell-amount">$48,560</td>
+                                    <td class="cell-amount text-success text-right">+$5,420</td>
+                                    <td class="cell-amount text-danger text-right">−$1,240</td>
+                                    <td class="cell-amount text-success text-right">+$4,180</td>
+                                    <td>1,284</td>
+                                    <td>2.4%</td>
+                                    <td><span class="stat-change up"><svg viewBox="0 0 24 24" width="14" height="14"
+                                                fill="none" class="success" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="12" y1="19" x2="12" y2="5" />
+                                                <polyline points="5 12 12 5 19 12" />
+                                            </svg></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Jan 2026</td>
+                                    <td class="cell-amount">$44,380</td>
+                                    <td class="cell-amount text-success text-right">+$4,890</td>
+                                    <td class="cell-amount text-danger text-right">−$980</td>
+                                    <td class="cell-amount text-success text-right">+$3,910</td>
+                                    <td>1,218</td>
+                                    <td>2.1%</td>
+                                    <td><span class="stat-change up"><svg viewBox="0 0 24 24" width="14" height="14"
+                                                fill="none" class="success" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="12" y1="19" x2="12" y2="5" />
+                                                <polyline points="5 12 12 5 19 12" />
+                                            </svg></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Dec 2025</td>
+                                    <td class="cell-amount">$40,470</td>
+                                    <td class="cell-amount text-success text-right">+$3,150</td>
+                                    <td class="cell-amount text-danger text-right">−$1,420</td>
+                                    <td class="cell-amount text-success text-right">+$1,730</td>
+                                    <td>1,156</td>
+                                    <td>3.1%</td>
+                                    <td><span class="stat-change down"><svg viewBox="0 0 24 24" width="14" height="14"
+                                                fill="none" class="danger" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="12" y1="5" x2="12" y2="19" />
+                                                <polyline points="19 12 12 19 5 12" />
+                                            </svg></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Nov 2025</td>
+                                    <td class="cell-amount">$38,740</td>
+                                    <td class="cell-amount text-success text-right">+$4,210</td>
+                                    <td class="cell-amount text-danger text-right">−$1,050</td>
+                                    <td class="cell-amount text-success text-right">+$3,160</td>
+                                    <td>1,134</td>
+                                    <td>2.6%</td>
+                                    <td><span class="stat-change up"><svg viewBox="0 0 24 24" width="14" height="14"
+                                                fill="none" class="success" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="12" y1="19" x2="12" y2="5" />
+                                                <polyline points="5 12 12 5 19 12" />
+                                            </svg></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Oct 2025</td>
+                                    <td class="cell-amount">$35,580</td>
+                                    <td class="cell-amount text-success text-right">+$3,780</td>
+                                    <td class="cell-amount text-danger text-right">−$890</td>
+                                    <td class="cell-amount text-success text-right">+$2,890</td>
+                                    <td>1,078</td>
+                                    <td>2.2%</td>
+                                    <td><span class="stat-change up"><svg viewBox="0 0 24 24" width="14" height="14"
+                                                fill="none" class="success" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="12" y1="19" x2="12" y2="5" />
+                                                <polyline points="5 12 12 5 19 12" />
+                                            </svg></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Sep 2025</td>
+                                    <td class="cell-amount">$32,690</td>
+                                    <td class="cell-amount text-success text-right">+$2,940</td>
+                                    <td class="cell-amount text-danger text-right">−$720</td>
+                                    <td class="cell-amount text-success text-right">+$2,220</td>
+                                    <td>1,024</td>
+                                    <td>1.9%</td>
+                                    <td><span class="stat-change up"><svg viewBox="0 0 24 24" width="14" height="14"
+                                                fill="none" class="success" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="12" y1="19" x2="12" y2="5" />
+                                                <polyline points="5 12 12 5 19 12" />
+                                            </svg></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

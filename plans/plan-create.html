@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Plan — SubsAdmin</title>
+    <meta name="description"
+        content="Create a new subscription plan with pricing, features, and billing configuration.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content plan-create-page">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item"><a href="plans-list.html">Plans</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Create Plan</span>
+                </nav>
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Create Plan</h1>
+                            <p class="page-subtitle">Set up a new subscription plan with pricing and feature limits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Main Form -->
+                    <form class="card form-card">
+                        <div class="card-header">
+                            <div class="card-title">Plan Details</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="plan-name">Plan Name <span class="required">*</span></label>
+                                <input type="text" id="plan-name" name="plan-name" placeholder="e.g. Professional"
+                                    required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="monthly-price">Monthly Price ($) <span class="required">*</span></label>
+                                    <input type="number" id="monthly-price" name="monthly-price" min="0"
+                                        placeholder="99" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="yearly-price">Yearly Price ($) <span class="required">*</span></label>
+                                    <input type="number" id="yearly-price" name="yearly-price" min="0" placeholder="990"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea id="description" name="description" rows="3"
+                                    placeholder="Brief description of the plan..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="feature-limits">Feature Limits</label>
+                                <input type="text" id="feature-limits" name="feature-limits"
+                                    placeholder="e.g. 25 users, 100GB storage, API access">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="trial-days">Trial Period (Days)</label>
+                                    <input type="number" id="trial-days" name="trial-days" min="0" value="14">
+                                </div>
+                                <div class="form-group">
+                                    <label for="billing-cycle">Billing Cycle</label>
+                                    <select id="billing-cycle" name="billing-cycle">
+                                        <option value="monthly">Monthly</option>
+                                        <option value="yearly">Yearly</option>
+                                        <option value="both" selected>Both</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="active-toggle" name="active-toggle" checked>
+                                    <span>Activate plan immediately</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="form-actions">
+                                <button class="btn btn-primary" type="submit"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Create Plan</button>
+                                <a href="plans-list.html" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Preview Sidebar -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Plan Preview</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="plan-preview">
+                                <div class="plan-preview-name">New Plan</div>
+                                <div class="plan-preview-price">$0<span class="plan-preview-period">/mo</span></div>
+                                <div class="plan-preview-features">
+                                    <div class="plan-preview-feature"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Feature limits as configured</div>
+                                    <div class="plan-preview-feature"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Trial period included</div>
+                                    <div class="plan-preview-feature"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> API access</div>
+                                    <div class="plan-preview-feature"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Email support</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: var(--space-6);">
+                                <h4
+                                    style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-3);">
+                                    Tips</h4>
+                                <div class="info-list">
+                                    <div class="info-row">
+                                        <span class="info-label"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                                        <span class="info-value" style="font-size: 0.8125rem;">Set yearly price to ~83%
+                                            of monthly * 12 to incentivize annual billing</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                                        <span class="info-value" style="font-size: 0.8125rem;">A 14-day trial converts
+                                            25% better than 7-day</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

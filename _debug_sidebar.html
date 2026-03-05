@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Debug</title>
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/tables.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <section class="page-content" style="padding:20px;">
+                <h1>Sidebar Debug</h1>
+                <p>Loading sidebar and dumping DOM info...</p>
+                <div id="debug-output"
+                    style="font-family:monospace;white-space:pre-wrap;font-size:12px;background:#f5f5f5;padding:16px;border-radius:8px;max-height:80vh;overflow:auto;">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        fetch('/components/sidebar.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('sidebar-include').innerHTML = html;
+
+                // Wait for rendering
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        const out = document.getElementById('debug-output');
+                        let info = '';
+
+                        // Sidebar element
+                        const sidebar = document.querySelector('.sidebar, aside');
+                        if (!sidebar) {
+                            info += 'ERROR: No sidebar element found!\n';
+                            out.textContent = info;
+                            return;
+                        }
+
+                        const sidebarCS = getComputedStyle(sidebar);
+                        info += '=== SIDEBAR (<' + sidebar.tagName + ' class="' + sidebar.className + '">) ===\n';
+                        info += 'display: ' + sidebarCS.display + '\n';
+                        info += 'position: ' + sidebarCS.position + '\n';
+                        info += 'width: ' + sidebarCS.width + '\n';
+                        info += 'height: ' + sidebarCS.height + '\n';
+                        info += 'overflow-y: ' + sidebarCS.overflowY + '\n';
+                        info += 'overflow-x: ' + sidebarCS.overflowX + '\n';
+                        info += 'visibility: ' + sidebarCS.visibility + '\n';
+                        info += 'opacity: ' + sidebarCS.opacity + '\n';
+                        info += 'clip: ' + sidebarCS.clip + '\n';
+                        info += 'clip-path: ' + sidebarCS.clipPath + '\n';
+                        info += 'scrollHeight: ' + sidebar.scrollHeight + '\n';
+                        info += 'clientHeight: ' + sidebar.clientHeight + '\n';
+                        info += 'offsetHeight: ' + sidebar.offsetHeight + '\n';
+                        info += 'getBoundingClientRect: ' + JSON.stringify(sidebar.getBoundingClientRect()) + '\n\n';
+
+                        // sidebar-include wrapper
+                        const wrapper = document.getElementById('sidebar-include');
+                        const wCS = getComputedStyle(wrapper);
+                        info += '=== #sidebar-include ===\n';
+                        info += 'display: ' + wCS.display + '\n';
+                        info += 'width: ' + wCS.width + '\n';
+                        info += 'height: ' + wCS.height + '\n';
+                        info += 'overflow: ' + wCS.overflow + '\n';
+                        info += 'position: ' + wCS.position + '\n';
+                        info += 'getBoundingClientRect: ' + JSON.stringify(wrapper.getBoundingClientRect()) + '\n\n';
+
+                        // Each child of sidebar
+                        info += '=== SIDEBAR CHILDREN ===\n';
+                        const allChildren = sidebar.children;
+                        for (let i = 0; i < allChildren.length; i++) {
+                            const child = allChildren[i];
+                            const cs = getComputedStyle(child);
+                            const rect = child.getBoundingClientRect();
+                            info += '\nChild ' + i + ': <' + child.tagName + ' class="' + child.className + '">\n';
+                            info += '  display: ' + cs.display + '\n';
+                            info += '  visibility: ' + cs.visibility + '\n';
+                            info += '  height: ' + cs.height + '\n';
+                            info += '  rect: top=' + Math.round(rect.top) + ' bottom=' + Math.round(rect.bottom) + ' height=' + Math.round(rect.height) + '\n';
+
+                            // If nav, list its children too
+                            if (child.tagName === 'NAV' || child.tagName === 'DIV') {
+                                for (let j = 0; j < child.children.length; j++) {
+                                    const gc = child.children[j];
+                                    const gcs = getComputedStyle(gc);
+                                    const grect = gc.getBoundingClientRect();
+                                    info += '    Child ' + i + '.' + j + ': <' + gc.tagName + '> text="' + (gc.textContent || '').trim().substring(0, 30) + '"\n';
+                                    info += '      display: ' + gcs.display + ', visibility: ' + gcs.visibility + '\n';
+                                    info += '      height: ' + gcs.height + ', opacity: ' + gcs.opacity + '\n';
+                                    info += '      rect: top=' + Math.round(grect.top) + ' bottom=' + Math.round(grect.bottom) + ' h=' + Math.round(grect.height) + '\n';
+                                }
+                            }
+                        }
+
+                        out.textContent = info;
+                    });
+                });
+            });
+    </script>
+</body>
+
+</html>

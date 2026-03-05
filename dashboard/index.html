@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — SubsAdmin</title>
+    <meta name="description"
+        content="SaaS Subscription Admin Dashboard — overview of MRR, active subscriptions, churn, and revenue." />
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/tables.css" />
+    <link rel="stylesheet" href="/assets/css/dashboard.css" />
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content dashboard-page">
+                <nav class="breadcrumb"><span class="breadcrumb-item active">Dashboard</span></nav>
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Dashboard</h1>
+                            <p class="page-subtitle">Welcome back, John. Here's your subscription overview.</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn btn-secondary"><svg viewBox="0 0 24 24" width="14" height="14"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg> Export</button>
+                            <a href="/accounts/index.html" class="btn btn-primary"><svg viewBox="0 0 24 24" width="14"
+                                    height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg> New Account</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPI Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon indigo"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Monthly Recurring Revenue</div>
+                            <div class="stat-value">$48,560</div>
+                            <div class="stat-change up"><span class="badge badge-success badge-dot">+12.5%</span><span
+                                    class="stat-compare">vs last month</span></div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                <line x1="12" y1="22.08" x2="12" y2="12" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Active Subscriptions</div>
+                            <div class="stat-value">1,284</div>
+                            <div class="stat-change up"><span class="badge badge-success badge-dot">+8.2%</span><span
+                                    class="stat-compare">vs last month</span></div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon amber"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                <polyline points="17 6 23 6 23 12" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Churn Rate</div>
+                            <div class="stat-value">3.2%</div>
+                            <div class="stat-change down"><span class="badge badge-danger badge-dot">-0.8%</span><span
+                                    class="stat-compare">vs last month</span></div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">New Accounts</div>
+                            <div class="stat-value">186</div>
+                            <div class="stat-change up"><span class="badge badge-success badge-dot">+24.1%</span><span
+                                    class="stat-compare">vs last month</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Revenue Chart + Plan Distribution -->
+                <div class="dashboard-grid">
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <div class="card-title">Revenue Overview</div>
+                            <div class="chart-legend">
+                                <span class="legend-item"><span class="legend-dot indigo"></span> Revenue</span>
+                                <span class="legend-item"><span class="legend-dot green"></span> New MRR</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-bar-container">
+                                <div class="chart-y-axis">
+                                    <span>$50k</span><span>$40k</span><span>$30k</span><span>$20k</span><span>$10k</span><span>$0</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar-col">
+                                        <div class="chart-bar primary" style="height:55%"></div>
+                                        <div class="chart-bar accent" style="height:22%"></div><span
+                                            class="chart-bar-label">Jul</span>
+                                    </div>
+                                    <div class="chart-bar-col">
+                                        <div class="chart-bar primary" style="height:60%"></div>
+                                        <div class="chart-bar accent" style="height:28%"></div><span
+                                            class="chart-bar-label">Aug</span>
+                                    </div>
+                                    <div class="chart-bar-col">
+                                        <div class="chart-bar primary" style="height:50%"></div>
+                                        <div class="chart-bar accent" style="height:20%"></div><span
+                                            class="chart-bar-label">Sep</span>
+                                    </div>
+                                    <div class="chart-bar-col">
+                                        <div class="chart-bar primary" style="height:72%"></div>
+                                        <div class="chart-bar accent" style="height:35%"></div><span
+                                            class="chart-bar-label">Oct</span>
+                                    </div>
+                                    <div class="chart-bar-col">
+                                        <div class="chart-bar primary" style="height:68%"></div>
+                                        <div class="chart-bar accent" style="height:30%"></div><span
+                                            class="chart-bar-label">Nov</span>
+                                    </div>
+                                    <div class="chart-bar-col">
+                                        <div class="chart-bar primary" style="height:80%"></div>
+                                        <div class="chart-bar accent" style="height:40%"></div><span
+                                            class="chart-bar-label">Dec</span>
+                                    </div>
+                                    <div class="chart-bar-col">
+                                        <div class="chart-bar primary" style="height:75%"></div>
+                                        <div class="chart-bar accent" style="height:38%"></div><span
+                                            class="chart-bar-label">Jan</span>
+                                    </div>
+                                    <div class="chart-bar-col">
+                                        <div class="chart-bar primary" style="height:88%"></div>
+                                        <div class="chart-bar accent" style="height:45%"></div><span
+                                            class="chart-bar-label">Feb</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <div class="card-title">Plan Distribution</div>
+                            <a href="/plans/plans-list.html" class="btn btn-ghost btn-sm">View All</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="donut-chart">
+                                <div class="donut-ring">
+                                    <div class="donut-center"><span class="donut-total">1,284</span><span
+                                            class="donut-label">Total</span></div>
+                                </div>
+                            </div>
+                            <div class="plan-list">
+                                <div class="plan-item"><span class="plan-dot" style="background:#4F46E5"></span><span
+                                        class="plan-name">Enterprise</span><span class="plan-count">412</span><span
+                                        class="plan-pct">32%</span></div>
+                                <div class="plan-item"><span class="plan-dot" style="background:#6366F1"></span><span
+                                        class="plan-name">Professional</span><span class="plan-count">538</span><span
+                                        class="plan-pct">42%</span></div>
+                                <div class="plan-item"><span class="plan-dot" style="background:#A5B4FC"></span><span
+                                        class="plan-name">Starter</span><span class="plan-count">256</span><span
+                                        class="plan-pct">20%</span></div>
+                                <div class="plan-item"><span class="plan-dot" style="background:#C7D2FE"></span><span
+                                        class="plan-name">Free Trial</span><span class="plan-count">78</span><span
+                                        class="plan-pct">6%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New vs Churned -->
+                <div class="card chart-card full-width-chart">
+                    <div class="card-header">
+                        <div class="card-title">New vs Churned Subscriptions</div>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot green"></span> New</span>
+                            <span class="legend-item"><span class="legend-dot red"></span> Churned</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-bar-container dual-chart">
+                            <div class="chart-y-axis">
+                                <span>120</span><span>90</span><span>60</span><span>30</span><span>0</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar-col dual">
+                                    <div class="chart-bar-pair">
+                                        <div class="chart-bar success" style="height:55%"></div>
+                                        <div class="chart-bar danger" style="height:18%"></div>
+                                    </div><span class="chart-bar-label">Jul</span>
+                                </div>
+                                <div class="chart-bar-col dual">
+                                    <div class="chart-bar-pair">
+                                        <div class="chart-bar success" style="height:62%"></div>
+                                        <div class="chart-bar danger" style="height:22%"></div>
+                                    </div><span class="chart-bar-label">Aug</span>
+                                </div>
+                                <div class="chart-bar-col dual">
+                                    <div class="chart-bar-pair">
+                                        <div class="chart-bar success" style="height:48%"></div>
+                                        <div class="chart-bar danger" style="height:25%"></div>
+                                    </div><span class="chart-bar-label">Sep</span>
+                                </div>
+                                <div class="chart-bar-col dual">
+                                    <div class="chart-bar-pair">
+                                        <div class="chart-bar success" style="height:70%"></div>
+                                        <div class="chart-bar danger" style="height:15%"></div>
+                                    </div><span class="chart-bar-label">Oct</span>
+                                </div>
+                                <div class="chart-bar-col dual">
+                                    <div class="chart-bar-pair">
+                                        <div class="chart-bar success" style="height:65%"></div>
+                                        <div class="chart-bar danger" style="height:20%"></div>
+                                    </div><span class="chart-bar-label">Nov</span>
+                                </div>
+                                <div class="chart-bar-col dual">
+                                    <div class="chart-bar-pair">
+                                        <div class="chart-bar success" style="height:78%"></div>
+                                        <div class="chart-bar danger" style="height:12%"></div>
+                                    </div><span class="chart-bar-label">Dec</span>
+                                </div>
+                                <div class="chart-bar-col dual">
+                                    <div class="chart-bar-pair">
+                                        <div class="chart-bar success" style="height:72%"></div>
+                                        <div class="chart-bar danger" style="height:14%"></div>
+                                    </div><span class="chart-bar-label">Jan</span>
+                                </div>
+                                <div class="chart-bar-col dual">
+                                    <div class="chart-bar-pair">
+                                        <div class="chart-bar success" style="height:85%"></div>
+                                        <div class="chart-bar danger" style="height:10%"></div>
+                                    </div><span class="chart-bar-label">Feb</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Payments Table -->
+                <div class="card table-section">
+                    <div class="card-header">
+                        <div class="card-title">Recent Payments</div>
+                        <div class="table-toolbar">
+                            <div class="filter-search-wrap">
+                                <span class="search-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8" />
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                    </svg></span>
+                                <input type="text" class="filter-search" placeholder="Search payments..." />
+                            </div>
+                            <button class="btn btn-secondary btn-sm"
+                                onclick="showToast('Filter options coming soon','info')"><svg viewBox="0 0 24 24"
+                                    width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                                </svg> Filter</button>
+                            <button class="btn btn-secondary btn-sm"><svg viewBox="0 0 24 24" width="14" height="14"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg> Export</button>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-check"><input type="checkbox" /></th>
+                                    <th class="sortable">Payment ID</th>
+                                    <th class="sortable">Organization</th>
+                                    <th class="sortable text-right">Amount</th>
+                                    <th>Status</th>
+                                    <th class="sortable">Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="location.href='/billing/payments-list.html'" style="cursor:pointer">
+                                    <td class="col-check" onclick="event.stopPropagation()"><input type="checkbox" />
+                                    </td>
+                                    <td class="cell-mono">PAY-2026-0891</td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar">AC</div>
+                                            <div>
+                                                <div class="user-name">Acme Corp</div>
+                                                <div class="user-email">billing@acme.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">$2,450.00</td>
+                                    <td><span class="badge badge-success badge-dot">Paid</span></td>
+                                    <td class="cell-date">Feb 23, 2026</td>
+                                    <td onclick="event.stopPropagation()">
+                                        <div class="table-actions"><button class="table-action-btn view" title="View"
+                                                onclick="location.href='/billing/payments-list.html'"><svg
+                                                    viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button><button class="table-action-btn edit" title="Receipt"
+                                                onclick="showToast('Receipt downloaded','success')"><svg
+                                                    viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                                    <polyline points="7 10 12 15 17 10" />
+                                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                                </svg></button></div>
+                                    </td>
+                                </tr>
+                                <tr onclick="location.href='/billing/payments-list.html'" style="cursor:pointer">
+                                    <td class="col-check" onclick="event.stopPropagation()"><input type="checkbox" />
+                                    </td>
+                                    <td class="cell-mono">PAY-2026-0890</td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar">TI</div>
+                                            <div>
+                                                <div class="user-name">TechInno Ltd</div>
+                                                <div class="user-email">accounts@techinno.io</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">$1,200.00</td>
+                                    <td><span class="badge badge-danger badge-dot">Failed</span></td>
+                                    <td class="cell-date">Feb 22, 2026</td>
+                                    <td onclick="event.stopPropagation()">
+                                        <div class="table-actions"><button class="table-action-btn view" title="View"
+                                                onclick="location.href='/billing/payments-list.html'"><svg
+                                                    viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button><button class="table-action-btn edit" title="Retry"
+                                                onclick="showToast('Retrying payment…','info')"><svg viewBox="0 0 24 24"
+                                                    width="14" height="14" fill="none" stroke="currentColor"
+                                                    stroke-width="2">
+                                                    <polyline points="23 4 23 10 17 10" />
+                                                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                                                </svg></button></div>
+                                    </td>
+                                </tr>
+                                <tr onclick="location.href='/billing/payments-list.html'" style="cursor:pointer">
+                                    <td class="col-check" onclick="event.stopPropagation()"><input type="checkbox" />
+                                    </td>
+                                    <td class="cell-mono">PAY-2026-0889</td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar">GS</div>
+                                            <div>
+                                                <div class="user-name">GlobalSync</div>
+                                                <div class="user-email">finance@globalsync.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">$3,800.00</td>
+                                    <td><span class="badge badge-success badge-dot">Paid</span></td>
+                                    <td class="cell-date">Feb 21, 2026</td>
+                                    <td onclick="event.stopPropagation()">
+                                        <div class="table-actions"><button class="table-action-btn view" title="View"
+                                                onclick="location.href='/billing/payments-list.html'"><svg
+                                                    viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button><button class="table-action-btn edit" title="Receipt"
+                                                onclick="showToast('Receipt downloaded','success')"><svg
+                                                    viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                                    <polyline points="7 10 12 15 17 10" />
+                                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                                </svg></button></div>
+                                    </td>
+                                </tr>
+                                <tr onclick="location.href='/billing/payments-list.html'" style="cursor:pointer">
+                                    <td class="col-check" onclick="event.stopPropagation()"><input type="checkbox" />
+                                    </td>
+                                    <td class="cell-mono">PAY-2026-0888</td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar">NF</div>
+                                            <div>
+                                                <div class="user-name">NexaFlow</div>
+                                                <div class="user-email">pay@nexaflow.dev</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">$890.00</td>
+                                    <td><span class="badge badge-warning badge-dot">Pending</span></td>
+                                    <td class="cell-date">Feb 20, 2026</td>
+                                    <td onclick="event.stopPropagation()">
+                                        <div class="table-actions"><button class="table-action-btn view" title="View"
+                                                onclick="location.href='/billing/payments-list.html'"><svg
+                                                    viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button><button class="table-action-btn edit" title="Edit"
+                                                onclick="showToast('Edit payment coming soon','info')"><svg
+                                                    viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                                </svg></button></div>
+                                    </td>
+                                </tr>
+                                <tr onclick="location.href='/billing/payments-list.html'" style="cursor:pointer">
+                                    <td class="col-check" onclick="event.stopPropagation()"><input type="checkbox" />
+                                    </td>
+                                    <td class="cell-mono">PAY-2026-0887</td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar">CD</div>
+                                            <div>
+                                                <div class="user-name">CloudDash Inc</div>
+                                                <div class="user-email">billing@clouddash.co</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">$5,200.00</td>
+                                    <td><span class="badge badge-success badge-dot">Paid</span></td>
+                                    <td class="cell-date">Feb 19, 2026</td>
+                                    <td onclick="event.stopPropagation()">
+                                        <div class="table-actions"><button class="table-action-btn view" title="View"
+                                                onclick="location.href='/billing/payments-list.html'"><svg
+                                                    viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button><button class="table-action-btn edit" title="Receipt"
+                                                onclick="showToast('Receipt downloaded','success')"><svg
+                                                    viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                                    <polyline points="7 10 12 15 17 10" />
+                                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                                </svg></button></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <div class="pagination">
+                            <span class="pagination-info">Showing 1–5 of 247 payments</span>
+                            <div class="pagination-controls">
+                                <button class="page-btn" disabled onclick="handlePage(0)"><svg viewBox="0 0 24 24"
+                                        width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6" />
+                                    </svg></button>
+                                <button class="page-btn active">1</button>
+                                <button class="page-btn" onclick="handlePage(2)">2</button>
+                                <button class="page-btn" onclick="handlePage(3)">3</button>
+                                <button class="page-btn">…</button>
+                                <button class="page-btn" onclick="handlePage(50)">50</button>
+                                <button class="page-btn" onclick="handlePage(2)"><svg viewBox="0 0 24 24" width="14"
+                                        height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6" />
+                                    </svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

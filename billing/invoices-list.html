@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoices — SubsAdmin</title>
+    <meta name="description" content="View and manage all invoices with status tracking and payment history.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/tables.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content invoices-list-page">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Invoices</span>
+                </nav>
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Invoices</h1>
+                            <p class="page-subtitle">View and manage all invoices and payment statuses.</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn btn-secondary"><svg viewBox="0 0 24 24" width="14" height="14"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg> Export</button>
+                            <button class="btn btn-primary">+ Create Invoice</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon indigo"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Invoices</div>
+                            <div class="stat-value">842</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+34</span>
+                                <span class="stat-compare">this month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Paid</div>
+                            <div class="stat-value">$186,400</div>
+                            <div class="stat-change">
+                                <span class="badge badge-success badge-dot">94%</span>
+                                <span class="stat-compare">collection rate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon amber">⏰</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Due</div>
+                            <div class="stat-value">$8,240</div>
+                            <div class="stat-change">
+                                <span class="badge badge-warning badge-dot">12 invoices</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="15" y1="9" x2="9" y2="15" />
+                                <line x1="9" y1="9" x2="15" y2="15" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Overdue</div>
+                            <div class="stat-value">$2,890</div>
+                            <div class="stat-change">
+                                <span class="badge badge-danger badge-dot">4 invoices</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+
+    <!-- Invoices Table -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">All Invoices</div>
+            <div class="table-toolbar">
+                <div class="filter-search-wrap">
+                    <span class="search-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg></span>
+                    <input type="text" class="filter-search" placeholder="Search invoices..." />
+                </div>
+                <button class="btn btn-secondary btn-sm"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                    </svg> Filter</button>
+                <button class="btn btn-secondary btn-sm"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg> Export</button>
+            </div>
+        </div>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th class="col-check"><input type="checkbox" /></th>
+                        <th class="sortable">Invoice ID</th>
+                        <th class="sortable">Organization</th>
+                        <th class="sortable text-right">Amount</th>
+                        <th class="sortable text-right">Tax</th>
+                        <th>Status</th>
+                        <th class="sortable">Due Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-check"><input type="checkbox" /></td>
+                        <td class="cell-mono">INV-2026-089</td>
+                        <td>
+                            <div class="cell-user">
+                                <div class="user-avatar">AC</div>
+                                <div>
+                                    <div class="user-name">Acme Corp</div>
+                                    <div class="user-email">billing@acme.com</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="cell-amount text-right">$2,400.00</td>
+                        <td class="cell-amount text-right">$240.00</td>
+                        <td><span class="badge badge-success badge-dot">Paid</span></td>
+                        <td class="cell-date">Feb 15, 2026</td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="table-action-btn view" title="View"><svg viewBox="0 0 24 24" width="14"
+                                        height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></button>
+                                <button class="table-action-btn" title="Download"><svg viewBox="0 0 24 24" width="14"
+                                        height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <polyline points="7 10 12 15 17 10" />
+                                        <line x1="12" y1="15" x2="12" y2="3" />
+                                    </svg></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-check"><input type="checkbox" /></td>
+                        <td class="cell-mono">INV-2026-088</td>
+                        <td>
+                            <div class="cell-user">
+                                <div class="user-avatar">DS</div>
+                                <div>
+                                    <div class="user-name">DataSphere</div>
+                                    <div class="user-email">finance@datasphere.ai</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="cell-amount text-right">$4,800.00</td>
+                        <td class="cell-amount text-right">$480.00</td>
+                        <td><span class="badge badge-success badge-dot">Paid</span></td>
+                        <td class="cell-date">Feb 15, 2026</td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="table-action-btn view" title="View"><svg viewBox="0 0 24 24" width="14"
+                                        height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></button>
+                                <button class="table-action-btn" title="Download"><svg viewBox="0 0 24 24" width="14"
+                                        height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <polyline points="7 10 12 15 17 10" />
+                                        <line x1="12" y1="15" x2="12" y2="3" />
+                                    </svg></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-check"><input type="checkbox" /></td>
+                        <td class="cell-mono">INV-2026-067</td>
+                        <td>
+                            <div class="cell-user">
+                                <div class="user-avatar">BL</div>
+                                <div>
+                                    <div class="user-name">Beta Labs</div>
+                                    <div class="user-email">pay@betalabs.io</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="cell-amount text-right">$99.00</td>
+                        <td class="cell-amount text-right">$9.90</td>
+                        <td><span class="badge badge-warning badge-dot">Due</span></td>
+                        <td class="cell-date">Feb 28, 2026</td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="table-action-btn view" title="View"><svg viewBox="0 0 24 24" width="14"
+                                        height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></button>
+                                <button class="table-action-btn" title="Send Reminder"><svg viewBox="0 0 24 24"
+                                        width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                        <line x1="16" y1="13" x2="8" y2="13" />
+                                        <line x1="16" y1="17" x2="8" y2="17" />
+                                    </svg></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-check"><input type="checkbox" /></td>
+                        <td class="cell-mono">INV-2025-312</td>
+                        <td>
+                            <div class="cell-user">
+                                <div class="user-avatar">CS</div>
+                                <div>
+                                    <div class="user-name">CloudSync Inc</div>
+                                    <div class="user-email">accounts@cloudsync.com</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="cell-amount text-right">$29.00</td>
+                        <td class="cell-amount text-right">$2.90</td>
+                        <td><span class="badge badge-danger badge-dot">Overdue</span></td>
+                        <td class="cell-date">Jan 15, 2026</td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="table-action-btn view" title="View"><svg viewBox="0 0 24 24" width="14"
+                                        height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></button>
+                                <button class="table-action-btn" title="Send Reminder"><svg viewBox="0 0 24 24"
+                                        width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                        <line x1="16" y1="13" x2="8" y2="13" />
+                                        <line x1="16" y1="17" x2="8" y2="17" />
+                                    </svg></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-check"><input type="checkbox" /></td>
+                        <td class="cell-mono">INV-2026-085</td>
+                        <td>
+                            <div class="cell-user">
+                                <div class="user-avatar">GS</div>
+                                <div>
+                                    <div class="user-name">GlobalSync</div>
+                                    <div class="user-email">billing@globalsync.com</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="cell-amount text-right">$3,800.00</td>
+                        <td class="cell-amount text-right">$380.00</td>
+                        <td><span class="badge badge-success badge-dot">Paid</span></td>
+                        <td class="cell-date">Feb 10, 2026</td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="table-action-btn view" title="View"><svg viewBox="0 0 24 24" width="14"
+                                        height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></button>
+                                <button class="table-action-btn" title="Download"><svg viewBox="0 0 24 24" width="14"
+                                        height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <polyline points="7 10 12 15 17 10" />
+                                        <line x1="12" y1="15" x2="12" y2="3" />
+                                    </svg></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            <div class="pagination">
+                <span class="pagination-info">Showing 1–5 of 842 invoices</span>
+                <div class="pagination-controls">
+                    <button class="page-btn" disabled><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">…</button>
+                    <button class="page-btn">169</button>
+                    <button class="page-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <div id="footer-include"></div>
+    </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

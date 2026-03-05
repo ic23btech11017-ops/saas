@@ -1,0 +1,223 @@
+/* ============================================
+   TABLES.CSS — Consistent Table Styles
+   ============================================ */
+
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+}
+
+.data-table thead {
+    background: var(--gray-50);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.data-table thead th {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    user-select: none;
+}
+
+.data-table thead th.sortable {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.data-table thead th.sortable:hover {
+    color: var(--primary);
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.15s ease;
+}
+
+.data-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background: var(--primary-50);
+}
+
+.data-table tbody td {
+    padding: var(--space-3) var(--space-4);
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+/* Striped Rows */
+.data-table.striped tbody tr:nth-child(even) {
+    background: var(--gray-50);
+}
+
+.data-table.striped tbody tr:nth-child(even):hover {
+    background: var(--primary-50);
+}
+
+/* ---------- Cell Variants ---------- */
+.cell-user {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.cell-user .user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 0.6875rem;
+    flex-shrink: 0;
+}
+
+.cell-user .user-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cell-user .user-email {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.cell-link {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.cell-link:hover {
+    text-decoration: underline;
+}
+
+.cell-mono {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.cell-amount {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.cell-date {
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+/* ---------- Table Actions ---------- */
+.table-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.table-action-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.table-action-btn:hover {
+    background: var(--gray-100);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.table-action-btn.view:hover {
+    color: var(--primary);
+}
+
+.table-action-btn.edit:hover {
+    color: var(--warning);
+}
+
+.table-action-btn.delete:hover {
+    color: var(--danger);
+}
+
+/* ---------- Checkbox Column ---------- */
+.data-table .col-check {
+    width: 40px;
+    text-align: center;
+}
+
+.data-table .col-check input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+/* ---------- Compact Table ---------- */
+.data-table.compact thead th,
+.data-table.compact tbody td {
+    padding: var(--space-2) var(--space-3);
+}
+
+/* ---------- Table Inside Cards ---------- */
+.card .data-table thead th:first-child,
+.card .data-table tbody td:first-child {
+    padding-left: var(--space-6);
+}
+
+.card .data-table thead th:last-child,
+.card .data-table tbody td:last-child {
+    padding-right: var(--space-6);
+}
+
+/* ---------- Table Empty State ---------- */
+.empty-state {
+    display: none;
+    text-align: center;
+    padding: var(--space-12) var(--space-6);
+    color: var(--gray-500);
+}
+
+.empty-state svg {
+    margin-bottom: var(--space-4);
+    color: var(--gray-300);
+}
+
+.empty-state-title {
+    font-size: var(--font-lg);
+    font-weight: 500;
+    color: var(--gray-900);
+    margin-bottom: var(--space-2);
+}
+
+[data-theme="dark"] .empty-state-title {
+    color: var(--gray-50);
+}
+
+[data-theme="dark"] .empty-state svg {
+    color: var(--gray-600);
+}

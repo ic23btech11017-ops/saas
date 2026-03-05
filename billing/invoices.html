@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoices — SubsAdmin</title>
+    <meta name="description" content="View and manage all invoices — track payment status, amounts, and due dates." />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/tables.css" />
+    <link rel="stylesheet" href="../assets/css/forms.css" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+</head>
+
+<body>
+    <div class="app">
+        <div id="sidebar-container"></div>
+        <div class="main-wrapper">
+            <div id="topbar-container"></div>
+
+            <main class="page-content">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Invoices</span>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Invoices</h1>
+                            <p class="page-subtitle">Track payments, outstanding invoices, and billing history.</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn btn-secondary">📥 Export</button>
+                            <button class="btn btn-primary">+ Create Invoice</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon green">✅</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Paid This Month</div>
+                            <div class="stat-value">$42,800</div>
+                            <span class="stat-change up">↑ 15.3%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon amber">⏳</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Pending</div>
+                            <div class="stat-value">$8,400</div>
+                            <span class="text-xs text-muted">12 invoices</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red">🔴</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Overdue</div>
+                            <div class="stat-value">$3,240</div>
+                            <span class="text-xs text-danger">4 invoices</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon indigo">📄</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Invoices</div>
+                            <div class="stat-value">1,847</div>
+                            <span class="text-xs text-muted">All time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-bar">
+                    <div class="filter-search-wrap">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="filter-search" placeholder="Search invoices..." />
+                    </div>
+                    <select class="filter-select">
+                        <option value="">All Status</option>
+                        <option>Paid</option>
+                        <option>Pending</option>
+                        <option>Overdue</option>
+                        <option>Draft</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">Date Range</option>
+                        <option>This Month</option>
+                        <option>Last Month</option>
+                        <option>Last 90 Days</option>
+                        <option>This Year</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">Sort By</option>
+                        <option>Newest First</option>
+                        <option>Amount High–Low</option>
+                        <option>Due Date</option>
+                    </select>
+                </div>
+
+                <!-- Invoices Table -->
+                <div class="card">
+                    <div class="table-wrapper">
+                        <table class="data-table striped">
+                            <thead>
+                                <tr>
+                                    <th class="col-check"><input type="checkbox" /></th>
+                                    <th class="sortable">Invoice #</th>
+                                    <th class="sortable">Account</th>
+                                    <th class="sortable">Amount</th>
+                                    <th class="sortable">Issue Date</th>
+                                    <th class="sortable">Due Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td><a href="invoice-detail.html" class="cell-link cell-mono">INV-2026-102</a></td>
+                                    <td><a href="../accounts/detail.html" class="cell-link">NexGen Solutions</a></td>
+                                    <td class="cell-amount">$4,800</td>
+                                    <td class="cell-date">Feb 20, 2026</td>
+                                    <td class="cell-date">Mar 6, 2026</td>
+                                    <td><span class="badge badge-warning badge-dot">Pending</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <a href="invoice-detail.html" class="table-action-btn view"
+                                                title="View">👁️</a>
+                                            <button class="table-action-btn edit" title="Send Reminder">📧</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td><a href="invoice-detail.html" class="cell-link cell-mono">INV-2026-101</a></td>
+                                    <td><a href="../accounts/detail.html" class="cell-link">Acme Corp</a></td>
+                                    <td class="cell-amount">$2,400</td>
+                                    <td class="cell-date">Feb 18, 2026</td>
+                                    <td class="cell-date">Mar 4, 2026</td>
+                                    <td><span class="badge badge-success badge-dot">Paid</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <a href="invoice-detail.html" class="table-action-btn view"
+                                                title="View">👁️</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td><a href="invoice-detail.html" class="cell-link cell-mono">INV-2026-098</a></td>
+                                    <td><a href="../accounts/detail.html" class="cell-link">DevStack</a></td>
+                                    <td class="cell-amount">$99</td>
+                                    <td class="cell-date">Feb 15, 2026</td>
+                                    <td class="cell-date">Mar 1, 2026</td>
+                                    <td><span class="badge badge-success badge-dot">Paid</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <a href="invoice-detail.html" class="table-action-btn view"
+                                                title="View">👁️</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td><a href="invoice-detail.html" class="cell-link cell-mono">INV-2026-095</a></td>
+                                    <td><a href="../accounts/detail.html" class="cell-link">Beta Labs</a></td>
+                                    <td class="cell-amount">$99</td>
+                                    <td class="cell-date">Feb 12, 2026</td>
+                                    <td class="cell-date">Feb 26, 2026</td>
+                                    <td><span class="badge badge-success badge-dot">Paid</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <a href="invoice-detail.html" class="table-action-btn view"
+                                                title="View">👁️</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td><a href="invoice-detail.html" class="cell-link cell-mono">INV-2026-089</a></td>
+                                    <td><a href="../accounts/detail.html" class="cell-link">IronRelay</a></td>
+                                    <td class="cell-amount">$99</td>
+                                    <td class="cell-date">Feb 1, 2026</td>
+                                    <td class="cell-date">Feb 15, 2026</td>
+                                    <td><span class="badge badge-danger badge-dot">Overdue</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <a href="invoice-detail.html" class="table-action-btn view"
+                                                title="View">👁️</a>
+                                            <button class="table-action-btn edit" title="Send Reminder">📧</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td><a href="invoice-detail.html" class="cell-link cell-mono">INV-2026-085</a></td>
+                                    <td><a href="../accounts/detail.html" class="cell-link">FlowWorks</a></td>
+                                    <td class="cell-amount">$29</td>
+                                    <td class="cell-date">Jan 28, 2026</td>
+                                    <td class="cell-date">Feb 11, 2026</td>
+                                    <td><span class="badge badge-danger badge-dot">Overdue</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <a href="invoice-detail.html" class="table-action-btn view"
+                                                title="View">👁️</a>
+                                            <button class="table-action-btn edit" title="Send Reminder">📧</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td><a href="invoice-detail.html" class="cell-link cell-mono">INV-2026-078</a></td>
+                                    <td><a href="../accounts/detail.html" class="cell-link">NexGen Solutions</a></td>
+                                    <td class="cell-amount">$4,800</td>
+                                    <td class="cell-date">Jan 20, 2026</td>
+                                    <td class="cell-date">Feb 3, 2026</td>
+                                    <td><span class="badge badge-success badge-dot">Paid</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <a href="invoice-detail.html" class="table-action-btn view"
+                                                title="View">👁️</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-check"><input type="checkbox" /></td>
+                                    <td><a href="invoice-detail.html" class="cell-link cell-mono">INV-2026-067</a></td>
+                                    <td><a href="../accounts/detail.html" class="cell-link">Acme Corp</a></td>
+                                    <td class="cell-amount">$2,400</td>
+                                    <td class="cell-date">Jan 18, 2026</td>
+                                    <td class="cell-date">Feb 1, 2026</td>
+                                    <td><span class="badge badge-success badge-dot">Paid</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <a href="invoice-detail.html" class="table-action-btn view"
+                                                title="View">👁️</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <div class="pagination">
+                            <span class="pagination-info">Showing 1–8 of 1,847 invoices</span>
+                            <div class="pagination-controls">
+                                <button class="page-btn" disabled>←</button>
+                                <button class="page-btn active">1</button>
+                                <button class="page-btn">2</button>
+                                <button class="page-btn">3</button>
+                                <button class="page-btn">…</button>
+                                <button class="page-btn">231</button>
+                                <button class="page-btn">→</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

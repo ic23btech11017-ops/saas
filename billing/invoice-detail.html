@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice Detail — SubsAdmin</title>
+    <meta name="description"
+        content="Invoice detail view with line items, totals, payment information, and related account." />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/tables.css" />
+    <link rel="stylesheet" href="../assets/css/forms.css" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+</head>
+
+<body>
+    <div class="app">
+        <div id="sidebar-container"></div>
+        <div class="main-wrapper">
+            <div id="topbar-container"></div>
+
+            <main class="page-content">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item"><a href="invoices.html">Invoices</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">INV-2026-101</span>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Invoice #INV-2026-101</h1>
+                            <p class="page-subtitle">Issued to Acme Corp · Feb 18, 2026</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn btn-secondary">🖨️ Print</button>
+                            <button class="btn btn-secondary">📥 Download PDF</button>
+                            <button class="btn btn-primary">📧 Send Invoice</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invoice Card -->
+                <div class="card" style="margin-bottom:var(--space-6);">
+                    <!-- Invoice Header -->
+                    <div class="invoice-header">
+                        <div class="invoice-brand">
+                            <h2>SubsAdmin</h2>
+                            <p class="text-sm text-secondary">Subscription Management Platform</p>
+                            <p class="text-sm text-secondary" style="margin-top:var(--space-2);">
+                                456 Market Street, Suite 200<br />
+                                San Francisco, CA 94105<br />
+                                billing@subsadmin.com
+                            </p>
+                        </div>
+                        <div class="invoice-info">
+                            <div class="invoice-number">INV-2026-101</div>
+                            <table class="text-sm" style="margin-top:var(--space-3); width:auto;">
+                                <tr>
+                                    <td class="text-secondary" style="padding:2px 12px 2px 0;">Issue Date:</td>
+                                    <td class="font-medium">Feb 18, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-secondary" style="padding:2px 12px 2px 0;">Due Date:</td>
+                                    <td class="font-medium">Mar 4, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-secondary" style="padding:2px 12px 2px 0;">Status:</td>
+                                    <td><span class="badge badge-success">Paid</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Bill To / Ship To -->
+                    <div class="invoice-parties">
+                        <div class="invoice-party">
+                            <h4>Bill To</h4>
+                            <p>
+                                <strong>Acme Corp</strong><br />
+                                123 Innovation Drive<br />
+                                San Francisco, CA 94107<br />
+                                admin@acmecorp.com
+                            </p>
+                        </div>
+                        <div class="invoice-party">
+                            <h4>Payment Method</h4>
+                            <p>
+                                <strong>Visa ending in 4242</strong><br />
+                                Auto-pay enabled<br />
+                                Paid on Feb 20, 2026
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Line Items -->
+                    <div style="padding: 0 var(--space-8);">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Plan / Period</th>
+                                    <th style="text-align:center;">Qty</th>
+                                    <th style="text-align:right;">Unit Price</th>
+                                    <th style="text-align:right;">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-medium">Enterprise Plan — Monthly</td>
+                                    <td class="cell-date">Feb 1 – Feb 28, 2026</td>
+                                    <td style="text-align:center;">1</td>
+                                    <td style="text-align:right;" class="cell-amount">$1,200.00</td>
+                                    <td style="text-align:right;" class="cell-amount">$1,200.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Pro Add-on — Monthly</td>
+                                    <td class="cell-date">Feb 15 – Mar 14, 2026</td>
+                                    <td style="text-align:center;">1</td>
+                                    <td style="text-align:right;" class="cell-amount">$800.00</td>
+                                    <td style="text-align:right;" class="cell-amount">$800.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Premium Support</td>
+                                    <td class="cell-date">Feb 1 – Feb 28, 2026</td>
+                                    <td style="text-align:center;">1</td>
+                                    <td style="text-align:right;" class="cell-amount">$400.00</td>
+                                    <td style="text-align:right;" class="cell-amount">$400.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Totals -->
+                    <div class="invoice-totals">
+                        <div class="invoice-total-row">
+                            <span class="text-secondary">Subtotal</span>
+                            <span class="cell-amount">$2,400.00</span>
+                        </div>
+                        <div class="invoice-total-row">
+                            <span class="text-secondary">Tax (0%)</span>
+                            <span class="cell-amount">$0.00</span>
+                        </div>
+                        <div class="invoice-total-row">
+                            <span class="text-secondary">Discount</span>
+                            <span class="cell-amount">−$0.00</span>
+                        </div>
+                        <div class="invoice-total-row grand">
+                            <span>Total</span>
+                            <span>$2,400.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Info -->
+                <div class="grid grid-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Related Account</h3>
+                        </div>
+                        <div class="card-body">
+                            <div style="display:flex; align-items:center; gap:var(--space-4);">
+                                <div class="avatar avatar-lg"
+                                    style="background:linear-gradient(135deg, var(--primary), var(--primary-light));">AC
+                                </div>
+                                <div>
+                                    <a href="../accounts/detail.html" class="cell-link font-medium text-md">Acme
+                                        Corp</a>
+                                    <p class="text-sm text-secondary">admin@acmecorp.com</p>
+                                    <p class="text-xs text-muted">Account ID: ACC-2026-001</p>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div style="display:flex; gap:var(--space-3);">
+                                <a href="../accounts/detail.html" class="btn btn-secondary btn-sm">View Account</a>
+                                <a href="../subscriptions/index.html" class="btn btn-ghost btn-sm">View
+                                    Subscriptions</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Payment History</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="activity-feed">
+                                <div class="activity-item">
+                                    <span class="activity-dot green"></span>
+                                    <div class="activity-body">
+                                        <p class="activity-text">Payment of <strong>$2,400.00</strong> received</p>
+                                        <span class="activity-time">Feb 20, 2026 · 10:32 AM via Visa ****4242</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-dot"></span>
+                                    <div class="activity-body">
+                                        <p class="activity-text">Invoice <strong>emailed</strong> to admin@acmecorp.com
+                                        </p>
+                                        <span class="activity-time">Feb 18, 2026 · 8:00 AM</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-dot"></span>
+                                    <div class="activity-body">
+                                        <p class="activity-text">Invoice <strong>generated</strong> automatically</p>
+                                        <span class="activity-time">Feb 18, 2026 · 12:01 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage Overview — SubsAdmin</title>
+    <meta name="description" content="Monitor API calls, active seats, storage, and usage growth trends.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/tables.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content usage-overview-page">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Usage</span>
+                </nav>
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Usage Overview</h1>
+                            <p class="page-subtitle">Monitor API calls, seats, storage, and usage growth across all
+                                accounts.</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn btn-secondary"><svg viewBox="0 0 24 24" width="14" height="14"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg> Export Report</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usage Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon indigo"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total API Calls</div>
+                            <div class="stat-value">1.28M</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+18.4%</span>
+                                <span class="stat-compare">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Active Seats</div>
+                            <div class="stat-value">320</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+24</span>
+                                <span class="stat-compare">this month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon amber"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="22" y1="12" x2="2" y2="12" />
+                                <path
+                                    d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+                                <line x1="6" y1="16" x2="6.01" y2="16" />
+                                <line x1="10" y1="16" x2="10.01" y2="16" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Storage Used</div>
+                            <div class="stat-value">2.4 TB</div>
+                            <div class="stat-change">
+                                <span class="badge badge-warning badge-dot">68%</span>
+                                <span class="stat-compare">of capacity</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="1.75">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg></div>
+                        <div class="stat-content">
+                            <div class="stat-label">Bandwidth</div>
+                            <div class="stat-value">128 GB</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+5.2%</span>
+                                <span class="stat-compare">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Calls Chart -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <div class="card-title">API Calls (Last 8 Months)</div>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot indigo"></span> API Calls</span>
+                            <span class="legend-item"><span class="legend-dot green"></span> Unique Users</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-bar-container">
+                            <div class="chart-y-axis">
+                                <span>1.5M</span><span>1.2M</span><span>900K</span><span>600K</span><span>300K</span><span>0</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:45%"></div>
+                                    <div class="chart-bar accent" style="height:20%"></div>
+                                    <span class="chart-bar-label">Jul</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:52%"></div>
+                                    <div class="chart-bar accent" style="height:24%"></div>
+                                    <span class="chart-bar-label">Aug</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:48%"></div>
+                                    <div class="chart-bar accent" style="height:22%"></div>
+                                    <span class="chart-bar-label">Sep</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:65%"></div>
+                                    <div class="chart-bar accent" style="height:30%"></div>
+                                    <span class="chart-bar-label">Oct</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:60%"></div>
+                                    <div class="chart-bar accent" style="height:28%"></div>
+                                    <span class="chart-bar-label">Nov</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:72%"></div>
+                                    <div class="chart-bar accent" style="height:35%"></div>
+                                    <span class="chart-bar-label">Dec</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:78%"></div>
+                                    <div class="chart-bar accent" style="height:38%"></div>
+                                    <span class="chart-bar-label">Jan</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar primary" style="height:85%"></div>
+                                    <div class="chart-bar accent" style="height:42%"></div>
+                                    <span class="chart-bar-label">Feb</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Storage & Seat Usage Trend Chart -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <div class="card-title">Storage & Seat Usage Trend (Last 8 Months)</div>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot"
+                                    style="background: var(--amber-500)"></span> Storage (TB)</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-bar-container">
+                            <div class="chart-y-axis">
+                                <span>3.0</span><span>2.4</span><span>1.8</span><span>1.2</span><span>0.6</span><span>0</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar amber" style="height:25%; background: var(--amber-400)"></div>
+                                    <span class="chart-bar-label">Jul</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar amber" style="height:34%; background: var(--amber-400)"></div>
+                                    <span class="chart-bar-label">Aug</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar amber" style="height:42%; background: var(--amber-400)"></div>
+                                    <span class="chart-bar-label">Sep</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar amber" style="height:55%; background: var(--amber-400)"></div>
+                                    <span class="chart-bar-label">Oct</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar amber" style="height:50%; background: var(--amber-400)"></div>
+                                    <span class="chart-bar-label">Nov</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar amber" style="height:68%; background: var(--amber-400)"></div>
+                                    <span class="chart-bar-label">Dec</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar amber" style="height:76%; background: var(--amber-400)"></div>
+                                    <span class="chart-bar-label">Jan</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar amber" style="height:80%; background: var(--amber-400)"></div>
+                                    <span class="chart-bar-label">Feb</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Consumers Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Top Usage Consumers</div>
+                        <div class="table-toolbar">
+                            <div class="filter-search-wrap">
+                                <span class="search-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8" />
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                    </svg></span>
+                                <input type="text" class="filter-search" placeholder="Search accounts..." />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="sortable">Account</th>
+                                    <th class="sortable text-right">API Calls</th>
+                                    <th class="sortable text-right">Storage</th>
+                                    <th class="sortable text-right">Seats</th>
+                                    <th>Plan</th>
+                                    <th>Usage %</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar">DS</div>
+                                            <div>
+                                                <div class="user-name">DataSphere</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">285,400</td>
+                                    <td class="cell-amount text-right">456 GB</td>
+                                    <td class="text-right">62</td>
+                                    <td><span class="badge badge-primary">Enterprise</span></td>
+                                    <td><span class="badge badge-danger badge-dot">92%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar">AC</div>
+                                            <div>
+                                                <div class="user-name">Acme Corp</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">142,580</td>
+                                    <td class="cell-amount text-right">284 GB</td>
+                                    <td class="text-right">45</td>
+                                    <td><span class="badge badge-primary">Enterprise</span></td>
+                                    <td><span class="badge badge-warning badge-dot">68%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar">GS</div>
+                                            <div>
+                                                <div class="user-name">GlobalSync</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">98,200</td>
+                                    <td class="cell-amount text-right">180 GB</td>
+                                    <td class="text-right">38</td>
+                                    <td><span class="badge badge-primary">Enterprise</span></td>
+                                    <td><span class="badge badge-success badge-dot">45%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar">NF</div>
+                                            <div>
+                                                <div class="user-name">NexaFlow</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-amount text-right">52,800</td>
+                                    <td class="cell-amount text-right">42 GB</td>
+                                    <td class="text-right">18</td>
+                                    <td><span class="badge badge-primary">Professional</span></td>
+                                    <td><span class="badge badge-success badge-dot">52%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>
