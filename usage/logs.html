@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage Logs — SubsAdmin</title>
+    <meta name="description" content="Detailed historical usage logs for all accounts.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/tables.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item"><a href="usage-overview.html">Usage</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Usage Logs</span>
+                </nav>
+
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Usage Logs</h1>
+                            <p class="page-subtitle">Track detailed API calls, seats, and storage events.</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn btn-secondary"><svg viewBox="0 0 24 24" width="14" height="14"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg> Export CSV</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="table-toolbar">
+                        <div class="filter-search-wrap">
+                            <span class="search-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                </svg></span>
+                            <input type="text" class="filter-search" placeholder="Search accounts or events..." />
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-secondary btn-sm"><svg viewBox="0 0 24 24" width="14" height="14"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                                </svg> Filter</button>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="sortable">Date & Time</th>
+                                    <th class="sortable">Account</th>
+                                    <th class="sortable">Usage Type</th>
+                                    <th class="sortable text-right">Quantity</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="cell-date">Mar 5, 2026 · 10:42 AM</td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar" style="width:24px;height:24px;font-size:10px;">AC
+                                            </div>
+                                            <div class="user-name">Acme Corp</div>
+                                        </div>
+                                    </td>
+                                    <td class="font-medium">API Calls /v1/users</td>
+                                    <td class="cell-amount text-right">+4,500</td>
+                                    <td><span class="badge badge-success badge-dot">Success</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-date">Mar 5, 2026 · 10:15 AM</td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar" style="width:24px;height:24px;font-size:10px;">DS
+                                            </div>
+                                            <div class="user-name">DataSphere</div>
+                                        </div>
+                                    </td>
+                                    <td class="font-medium">Seat Added</td>
+                                    <td class="cell-amount text-right">+1</td>
+                                    <td><span class="badge badge-success badge-dot">Success</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-date">Mar 5, 2026 · 09:30 AM</td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar" style="width:24px;height:24px;font-size:10px;">GS
+                                            </div>
+                                            <div class="user-name">GlobalSync</div>
+                                        </div>
+                                    </td>
+                                    <td class="font-medium">Storage Upload</td>
+                                    <td class="cell-amount text-right">+2.4 GB</td>
+                                    <td><span class="badge badge-success badge-dot">Success</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-date">Mar 4, 2026 · 16:45 PM</td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar" style="width:24px;height:24px;font-size:10px;">AC
+                                            </div>
+                                            <div class="user-name">Acme Corp</div>
+                                        </div>
+                                    </td>
+                                    <td class="font-medium">API Calls /v1/reports</td>
+                                    <td class="cell-amount text-right">+12,000</td>
+                                    <td><span class="badge badge-warning badge-dot">Rate Limited</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-date">Mar 4, 2026 · 14:20 PM</td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar" style="width:24px;height:24px;font-size:10px;">NF
+                                            </div>
+                                            <div class="user-name">NexaFlow</div>
+                                        </div>
+                                    </td>
+                                    <td class="font-medium">Seat Removed</td>
+                                    <td class="cell-amount text-right">-1</td>
+                                    <td><span class="badge badge-success badge-dot">Success</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="pagination">
+                            <span class="pagination-info">Showing 1–5 of 124,592 events</span>
+                            <div class="pagination-controls">
+                                <button class="page-btn" disabled><svg viewBox="0 0 24 24" width="14" height="14"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6" />
+                                    </svg></button>
+                                <button class="page-btn active">1</button>
+                                <button class="page-btn">2</button>
+                                <button class="page-btn">3</button>
+                                <button class="page-btn">…</button>
+                                <button class="page-btn">24,918</button>
+                                <button class="page-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6" />
+                                    </svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

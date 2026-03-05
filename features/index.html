@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Flags — SubsAdmin</title>
+    <meta name="description" content="Manage feature rollouts and dark launches across subscription plans.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/tables.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Feature Flags</span>
+                </nav>
+
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Feature Flags</h1>
+                            <p class="page-subtitle">Control feature rollouts, beta access, and dark launches.</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn btn-primary"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg> Create Flag</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats summary -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-label">Total Flags</div>
+                            <div class="stat-value text-md" style="font-size:1.5rem">24</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-label">Active Flags</div>
+                            <div class="stat-value text-md text-success" style="font-size:1.5rem">18</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-label">In Rolling Phase</div>
+                            <div class="stat-value text-md text-warning" style="font-size:1.5rem">4</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-label">Stale/Archived</div>
+                            <div class="stat-value text-md text-secondary" style="font-size:1.5rem">2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="table-toolbar">
+                        <div class="filter-search-wrap">
+                            <span class="search-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                </svg></span>
+                            <input type="text" class="filter-search" placeholder="Search features by name or key..." />
+                        </div>
+                        <div class="filter-actions">
+                            <select class="filter-select">
+                                <option>Status: All</option>
+                                <option>Status: Enabled</option>
+                                <option>Status: Disabled</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>Environment: Production</option>
+                                <option>Environment: Staging</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="sortable">Feature Name / Key</th>
+                                    <th>Status</th>
+                                    <th>Target Plan</th>
+                                    <th>Rollout %</th>
+                                    <th>Last Updated</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="font-medium">New Reporting Dashboard V2</div>
+                                        <div class="text-xs text-secondary font-mono">dashboard_v2_enabled</div>
+                                    </td>
+                                    <td><span class="badge badge-success">Enabled</span></td>
+                                    <td><span class="badge badge-secondary">All Plans</span></td>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:var(--space-2);">
+                                            <span>100%</span>
+                                            <div
+                                                style="width:50px; height:4px; background:var(--gray-200); border-radius:2px;">
+                                                <div
+                                                    style="width:100%; height:100%; background:var(--success); border-radius:2px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-date">Feb 28, 2026</td>
+                                    <td><button class="btn btn-ghost btn-sm">Manage</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="font-medium">AI Custom Integrations</div>
+                                        <div class="text-xs text-secondary font-mono">ai_integrations_beta</div>
+                                    </td>
+                                    <td><span class="badge badge-success">Enabled</span></td>
+                                    <td><span class="badge badge-primary">Enterprise Only</span></td>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:var(--space-2);">
+                                            <span>25%</span>
+                                            <div
+                                                style="width:50px; height:4px; background:var(--gray-200); border-radius:2px;">
+                                                <div
+                                                    style="width:25%; height:100%; background:var(--primary); border-radius:2px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-date">Mar 1, 2026</td>
+                                    <td><button class="btn btn-ghost btn-sm">Manage</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="font-medium">Advanced Role Limits</div>
+                                        <div class="text-xs text-secondary font-mono">advanced_rbac</div>
+                                    </td>
+                                    <td><span class="badge badge-success">Enabled</span></td>
+                                    <td><span class="badge badge-primary">Professional & Enterprise</span></td>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:var(--space-2);">
+                                            <span>50%</span>
+                                            <div
+                                                style="width:50px; height:4px; background:var(--gray-200); border-radius:2px;">
+                                                <div
+                                                    style="width:50%; height:100%; background:var(--primary); border-radius:2px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-date">Mar 4, 2026</td>
+                                    <td><button class="btn btn-ghost btn-sm">Manage</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="font-medium">Legacy Data Export</div>
+                                        <div class="text-xs text-secondary font-mono">legacy_export_tool</div>
+                                    </td>
+                                    <td><span class="badge badge-secondary">Disabled</span></td>
+                                    <td><span class="badge badge-secondary">All Plans</span></td>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:var(--space-2);">
+                                            <span class="text-secondary">0%</span>
+                                            <div
+                                                style="width:50px; height:4px; background:var(--gray-200); border-radius:2px;">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cell-date">Jan 15, 2025</td>
+                                    <td><button class="btn btn-ghost btn-sm">Manage</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="pagination">
+                            <span class="pagination-info">Showing 1–4 of 24 flags</span>
+                            <div class="pagination-controls">
+                                <button class="page-btn active">1</button>
+                                <button class="page-btn">2</button>
+                                <button class="page-btn">3</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

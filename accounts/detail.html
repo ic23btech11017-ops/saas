@@ -87,6 +87,7 @@
                     <button class="tab-btn active" data-tab="tab-overview">Overview</button>
                     <button class="tab-btn" data-tab="tab-users">Users</button>
                     <button class="tab-btn" data-tab="tab-subscription">Subscription</button>
+                    <button class="tab-btn" data-tab="tab-usage">Usage</button>
                     <button class="tab-btn" data-tab="tab-billing">Billing</button>
                     <button class="tab-btn" data-tab="tab-activity">Activity</button>
                 </div>
@@ -219,7 +220,8 @@
                                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
                                                 stroke="currentColor" stroke-width="2">
                                                 <polyline points="9 18 15 12 9 6" />
-                                            </svg> Enterprise plan</div>
+                                            </svg> Enterprise plan
+                                        </div>
                                         <div class="activity-time">3 days ago</div>
                                     </div>
                                 </div>
@@ -327,6 +329,105 @@
                                 <div class="info-row"><span class="info-label">API Calls (this month)</span><span
                                         class="info-value">245,000 / Unlimited</span></div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Usage -->
+                <div class="tab-content" id="tab-usage">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon indigo"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                    stroke="currentColor" stroke-width="1.75">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg></div>
+                            <div class="stat-content">
+                                <div class="stat-label">API Calls (This Month)</div>
+                                <div class="stat-value">142,580</div>
+                                <div class="stat-change up">
+                                    <span class="badge badge-success badge-dot">+12%</span>
+                                    <span class="stat-compare">vs last month</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                    stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg></div>
+                            <div class="stat-content">
+                                <div class="stat-label">Active Seats</div>
+                                <div class="stat-value">45</div>
+                                <div class="stat-change">
+                                    <span class="badge badge-warning badge-dot">90%</span>
+                                    <span class="stat-compare">of 50 limit</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon amber"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                    stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="22" y1="12" x2="2" y2="12" />
+                                    <path
+                                        d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+                                    <line x1="6" y1="16" x2="6.01" y2="16" />
+                                    <line x1="10" y1="16" x2="10.01" y2="16" />
+                                </svg></div>
+                            <div class="stat-content">
+                                <div class="stat-label">Storage Used</div>
+                                <div class="stat-value">284 GB</div>
+                                <div class="stat-change">
+                                    <span class="badge badge-success badge-dot">56%</span>
+                                    <span class="stat-compare">of 500GB limit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Recent API Usage Logs</div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Endpoint</th>
+                                        <th>Method</th>
+                                        <th class="text-right">Calls</th>
+                                        <th class="text-right">Avg Latency</th>
+                                        <th>Status Rates</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-medium">/api/v1/users</td>
+                                        <td><span class="badge badge-success">GET</span></td>
+                                        <td class="cell-amount text-right">45,210</td>
+                                        <td class="text-right">124ms</td>
+                                        <td><span class="badge badge-success badge-dot">99.9% 2xx</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">/api/v1/invoices</td>
+                                        <td><span class="badge badge-warning">POST</span></td>
+                                        <td class="cell-amount text-right">12,850</td>
+                                        <td class="text-right">340ms</td>
+                                        <td><span class="badge badge-success badge-dot">98.5% 2xx</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">/api/v1/reports/export</td>
+                                        <td><span class="badge badge-success">GET</span></td>
+                                        <td class="cell-amount text-right">3,420</td>
+                                        <td class="text-right">1.2s</td>
+                                        <td><span class="badge badge-warning badge-dot">95.2% 2xx</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

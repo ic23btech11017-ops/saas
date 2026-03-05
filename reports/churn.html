@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn & Retention Dashboard — SubsAdmin</title>
+    <meta name="description" content="Detailed analytics on customer churn, trial conversion, and retention trends.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/tables.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item"><a href="reports-dashboard.html">Reports</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Churn Analytics</span>
+                </nav>
+
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Churn & Retention</h1>
+                            <p class="page-subtitle">Understand why customers leave and track retention over time.</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <select class="filter-select" style="margin-right: var(--space-2)">
+                                <option>Last 30 days</option>
+                                <option>Last 90 days</option>
+                                <option>Last 12 months</option>
+                            </select>
+                            <a href="at-risk.html" class="btn btn-warning"><svg viewBox="0 0 24 24" width="14"
+                                    height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                                    <line x1="12" y1="9" x2="12" y2="13" />
+                                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                                </svg> View At-Risk Accounts</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPI Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon danger" style="background:var(--danger-50); color:var(--danger-600)">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="1.75">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="8.5" cy="7" r="4" />
+                                <line x1="18" y1="8" x2="23" y2="13" />
+                                <line x1="23" y1="8" x2="18" y2="13" />
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Customer Churn Rate</div>
+                            <div class="stat-value">2.4%</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">-0.6%</span>
+                                <span class="stat-compare">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon amber">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="1.75">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Revenue Churn Rate</div>
+                            <div class="stat-value">1.8%</div>
+                            <div class="stat-change down">
+                                <span class="badge badge-warning badge-dot">+0.2%</span>
+                                <span class="stat-compare">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="1.75">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="16 12 12 8 8 12" />
+                                <line x1="12" y1="16" x2="12" y2="8" />
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Net Retention Rate</div>
+                            <div class="stat-value">104.5%</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+1.5%</span>
+                                <span class="stat-compare">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="1.75">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Trial Conversion</div>
+                            <div class="stat-value">68.2%</div>
+                            <div class="stat-change up">
+                                <span class="badge badge-success badge-dot">+4.1%</span>
+                                <span class="stat-compare">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Churn Reasons -->
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Top Churn Reasons (Last 90 Days)</div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Reason Code</th>
+                                        <th>Count</th>
+                                        <th>% of Total</th>
+                                        <th>Lost MRR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-medium">Pricing / Too Expensive</td>
+                                        <td>42</td>
+                                        <td>35%</td>
+                                        <td class="cell-amount">$1,850</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Missing Features</td>
+                                        <td>28</td>
+                                        <td>23%</td>
+                                        <td class="cell-amount">$2,100</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Switched to Competitor</td>
+                                        <td>18</td>
+                                        <td>15%</td>
+                                        <td class="cell-amount">$1,450</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Company Closed / Acquisition</td>
+                                        <td>15</td>
+                                        <td>12%</td>
+                                        <td class="cell-amount">$3,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Poor Customer Service</td>
+                                        <td>9</td>
+                                        <td>8%</td>
+                                        <td class="cell-amount">$450</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Recent Churns</div>
+                            <button class="btn btn-ghost btn-sm">View All</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="activity-feed">
+                                <div class="activity-item">
+                                    <div class="activity-dot danger"></div>
+                                    <div class="activity-body">
+                                        <div class="activity-text"><strong>TechFlow Inc</strong> cancelled Professional
+                                            Plan</div>
+                                        <div class="activity-time">Yesterday · Lost MRR: $299</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-dot danger"></div>
+                                    <div class="activity-body">
+                                        <div class="activity-text"><strong>Apex Solutions</strong> cancelled Enterprise
+                                            Plan</div>
+                                        <div class="activity-time">3 days ago · Lost MRR: $1,200</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-dot danger"></div>
+                                    <div class="activity-body">
+                                        <div class="activity-text"><strong>CloudSync</strong> cancelled Starter Plan
+                                        </div>
+                                        <div class="activity-time">1 week ago · Lost MRR: $49</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-dot danger"></div>
+                                    <div class="activity-body">
+                                        <div class="activity-text"><strong>DataSphere</strong> down-graded from
+                                            Enterprise to Pro</div>
+                                        <div class="activity-time">2 weeks ago · Lost MRR: $901</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

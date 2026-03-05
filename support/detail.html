@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket #TIC-1042 — SubsAdmin</title>
+    <meta name="description" content="View ticket conversation and details.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+    <style>
+        .ticket-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: var(--space-6);
+        }
+
+        .conversation {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+
+        .message {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .message-content {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            flex: 1;
+        }
+
+        .message.agent .message-content {
+            background: var(--gray-50);
+            border-color: var(--gray-200);
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-2);
+        }
+
+        .message-body {
+            color: var(--gray-800);
+            line-height: 1.5;
+        }
+
+        .reply-box {
+            margin-top: var(--space-6);
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item"><a href="index.html">Support</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">#TIC-1042</span>
+                </nav>
+
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">API hitting rate limits unexpectedly</h1>
+                            <p class="page-subtitle">Submitted by Tom Smith (Acme Corp) · 2 hours ago</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn btn-secondary">Merge</button>
+                            <button class="btn btn-secondary">Close Ticket</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ticket-layout">
+                    <!-- Left: Conversation -->
+                    <div class="ticket-conversation">
+                        <div class="conversation">
+                            <!-- Customer message -->
+                            <div class="message">
+                                <div class="avatar"
+                                    style="background:linear-gradient(135deg, var(--gray-300), var(--gray-400));">TS
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <strong>Tom Smith</strong>
+                                        <span class="text-xs text-secondary">2 hours ago (10:15 AM)</span>
+                                    </div>
+                                    <div class="message-body">
+                                        <p>Hi team,</p>
+                                        <p style="margin-top:var(--space-2)">Our background sync process started hitting
+                                            HTTP 429 Too Many Requests errors this morning around 9:00 AM UTC. We
+                                            haven't changed our sync frequency, and we should be well within the
+                                            Enterprise plan limits (1M calls/month).</p>
+                                        <p style="margin-top:var(--space-2)">Could you please check if our rate limits
+                                            were accidentally lowered or if there's an issue on your API gateway?</p>
+                                        <p style="margin-top:var(--space-2)">Thanks,<br>Tom</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Agent message -->
+                            <div class="message agent">
+                                <div class="avatar" style="background:var(--primary); color:#fff">JD</div>
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <strong>John Doe <span class="badge badge-primary"
+                                                style="margin-left:var(--space-2)">Support Team</span></strong>
+                                        <span class="text-xs text-secondary">1 hour ago (11:05 AM)</span>
+                                    </div>
+                                    <div class="message-body">
+                                        <p>Hi Tom,</p>
+                                        <p style="margin-top:var(--space-2)">Thank you for reaching out. I've taken a
+                                            look at your account logs, and I can confirm that you are on the Enterprise
+                                            plan.</p>
+                                        <p style="margin-top:var(--space-2)">However, I noticed a sudden spike in
+                                            requests to the `/v1/reports/export` endpoint starting around 8:45 AM UTC.
+                                            While your monthly limit is 1M, there is a concurrent request limit of 50
+                                            req/sec to prevent system degradation. It appears your script might be
+                                            performing parallel requests exceeding this burst threshold.</p>
+                                        <p style="margin-top:var(--space-2)">Could you verify if your syncing logic
+                                            added any concurrent workers recently?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reply -->
+                        <div class="reply-box">
+                            <div style="margin-bottom:var(--space-3); display:flex; gap:var(--space-2)">
+                                <button class="btn btn-secondary btn-sm active">Reply</button>
+                                <button class="btn btn-ghost btn-sm text-secondary">Internal Note</button>
+                            </div>
+                            <textarea class="form-control" rows="4" placeholder="Type your reply here..."></textarea>
+                            <div
+                                style="margin-top:var(--space-3); display:flex; justify-content:space-between; align-items:center;">
+                                <div class="text-xs text-secondary">Formatting supported: Markdown</div>
+                                <div style="display:flex; gap:var(--space-2);">
+                                    <select class="form-control" style="width:150px">
+                                        <option>Open</option>
+                                        <option>Pending</option>
+                                        <option selected>Resolved</option>
+                                    </select>
+                                    <button class="btn btn-primary">Send & Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Metadata -->
+                    <div class="ticket-sidebar">
+                        <div class="card" style="margin-bottom:var(--space-4)">
+                            <div class="card-header">
+                                <div class="card-title">Ticket Info</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Status</label>
+                                    <span class="badge badge-warning badge-dot">Open</span>
+                                </div>
+                                <div class="form-group" style="margin-top:var(--space-3)">
+                                    <label class="form-label">Priority</label>
+                                    <select class="form-control">
+                                        <option>Low</option>
+                                        <option>Normal</option>
+                                        <option selected>High</option>
+                                        <option>Urgent</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin-top:var(--space-3)">
+                                    <label class="form-label">Assignee</label>
+                                    <select class="form-control">
+                                        <option>Unassigned</option>
+                                        <option selected>John Doe</option>
+                                        <option>Sarah Adams</option>
+                                        <option>Emma Ross</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin-top:var(--space-3)">
+                                    <label class="form-label">Type</label>
+                                    <div class="text-sm">Technical Issue</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Customer Info</div>
+                            </div>
+                            <div class="card-body">
+                                <div
+                                    style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4)">
+                                    <div class="avatar"
+                                        style="background:linear-gradient(135deg, var(--primary), var(--primary-light));">
+                                        AC</div>
+                                    <div>
+                                        <a href="../accounts/detail.html" class="cell-link font-medium">Acme Corp</a>
+                                        <div class="text-xs text-secondary">Enterprise Plan</div>
+                                    </div>
+                                </div>
+                                <div class="info-list text-sm">
+                                    <div class="info-row">
+                                        <span class="info-label">Contact</span>
+                                        <span class="info-value">Tom Smith</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Email</span>
+                                        <span class="info-value"><a
+                                                href="mailto:tom@acmecorp.com">tom@acmecorp.com</a></span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">MRR</span>
+                                        <span class="info-value">$2,450</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

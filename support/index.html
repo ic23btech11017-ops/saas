@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Tickets — SubsAdmin</title>
+    <meta name="description" content="Manage customer issues, track resolutions, and monitor support performance.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/tables.css">
+    <link rel="stylesheet" href="/assets/css/forms.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div id="sidebar-include"></div>
+        <main class="main-content">
+            <div id="topbar-include"></div>
+            <section class="page-content">
+                <nav class="breadcrumb">
+                    <span class="breadcrumb-item"><a href="../dashboard/index.html">Dashboard</a></span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-item active">Support</span>
+                </nav>
+
+                <div class="page-header">
+                    <div class="page-header-top">
+                        <div>
+                            <h1 class="page-title">Support Tickets</h1>
+                            <p class="page-subtitle">Track and resolve customer support inquiries and issues.</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn btn-primary"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg> Create Ticket</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPI Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-label">Open Tickets</div>
+                            <div class="stat-value text-md" style="font-size:1.5rem">42</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-label">High Priority</div>
+                            <div class="stat-value text-md text-danger" style="font-size:1.5rem">8</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-label">Avg Resolution Time</div>
+                            <div class="stat-value text-md" style="font-size:1.5rem">4.2h</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-label">CSAT Score</div>
+                            <div class="stat-value text-md text-success" style="font-size:1.5rem">4.8/5</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="table-toolbar">
+                        <div class="filter-search-wrap">
+                            <span class="search-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                </svg></span>
+                            <input type="text" class="filter-search"
+                                placeholder="Search by ID, subject, or customer..." />
+                        </div>
+                        <div class="filter-actions">
+                            <select class="filter-select">
+                                <option>Status: Open</option>
+                                <option>Status: Pending</option>
+                                <option>Status: Resolved</option>
+                                <option>Status: Closed</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>Priority: All</option>
+                                <option>Priority: High</option>
+                                <option>Priority: Normal</option>
+                                <option>Priority: Low</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="sortable">Ticket ID</th>
+                                    <th>Subject & Account</th>
+                                    <th class="sortable">Priority</th>
+                                    <th>Status</th>
+                                    <th>Assignee</th>
+                                    <th class="sortable">Created</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-medium"><a href="detail.html" class="cell-link">#TIC-1042</a></td>
+                                    <td>
+                                        <div class="font-medium">API hitting rate limits unexpectedly</div>
+                                        <div class="text-xs text-secondary">Acme Corp</div>
+                                    </td>
+                                    <td><span class="badge badge-danger">High</span></td>
+                                    <td><span class="badge badge-warning badge-dot">Open</span></td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar" style="width:24px;height:24px;font-size:10px;">JD
+                                            </div>
+                                            <span class="text-sm">John Doe</span>
+                                        </div>
+                                    </td>
+                                    <td class="cell-date">2 hrs ago</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium"><a href="detail.html" class="cell-link">#TIC-1041</a></td>
+                                    <td>
+                                        <div class="font-medium">Need help configuring SSO integration</div>
+                                        <div class="text-xs text-secondary">TechFlow Inc</div>
+                                    </td>
+                                    <td><span class="badge badge-warning">Normal</span></td>
+                                    <td><span class="badge badge-warning badge-dot">Open</span></td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar" style="width:24px;height:24px;font-size:10px;">SA
+                                            </div>
+                                            <span class="text-sm">Sarah Adams</span>
+                                        </div>
+                                    </td>
+                                    <td class="cell-date">5 hrs ago</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium"><a href="detail.html" class="cell-link">#TIC-1040</a></td>
+                                    <td>
+                                        <div class="font-medium">Invoice #INV-2026-101 has wrong billing address</div>
+                                        <div class="text-xs text-secondary">DataSphere</div>
+                                    </td>
+                                    <td><span class="badge badge-warning">Normal</span></td>
+                                    <td><span class="badge badge-primary badge-dot">Pending Reply</span></td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar" style="width:24px;height:24px;font-size:10px;">JD
+                                            </div>
+                                            <span class="text-sm">John Doe</span>
+                                        </div>
+                                    </td>
+                                    <td class="cell-date">Yesterday</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium"><a href="detail.html" class="cell-link">#TIC-1039</a></td>
+                                    <td>
+                                        <div class="font-medium">Feature request: Custom email templates</div>
+                                        <div class="text-xs text-secondary">CloudSync</div>
+                                    </td>
+                                    <td><span class="badge badge-secondary">Low</span></td>
+                                    <td><span class="badge badge-success badge-dot">Resolved</span></td>
+                                    <td>
+                                        <div class="cell-user">
+                                            <div class="user-avatar" style="width:24px;height:24px;font-size:10px;">ER
+                                            </div>
+                                            <span class="text-sm">Emma Ross</span>
+                                        </div>
+                                    </td>
+                                    <td class="cell-date">Mar 3, 2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="pagination">
+                            <span class="pagination-info">Showing 1–4 of 42 open tickets</span>
+                            <div class="pagination-controls">
+                                <button class="page-btn active">1</button>
+                                <button class="page-btn">2</button>
+                                <button class="page-btn">3</button>
+                                <button class="page-btn">…</button>
+                                <button class="page-btn">11</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="footer-include"></div>
+        </main>
+    </div>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>
