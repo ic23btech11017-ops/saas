@@ -287,9 +287,49 @@ function wireButtons() {
         }
 
         // Detail page edit buttons
-        if (btn.classList.contains('btn-secondary') && text.includes('edit')) {
+        if (btn.classList.contains('btn-secondary') && text.includes('edit') && !text.includes('profile')) {
             e.preventDefault();
             openModal('editDetail');
+            return;
+        }
+
+        // Missing module generic actions
+        if (text.includes('contact csm') || text.includes('schedule call') || text.includes('send offer')) {
+            e.preventDefault();
+            showToast('Customer outreach initiated.', 'success');
+            return;
+        }
+
+        if (text.includes('merge') || text.includes('close ticket') || text.includes('send & update')) {
+            e.preventDefault();
+            showToast('Ticket updated successfully.', 'success');
+            return;
+        }
+
+        if (text.includes('process payment')) {
+            e.preventDefault();
+            showToast('Payment processing initiated.', 'info');
+            return;
+        }
+
+        // Feature Flags
+        if (text.includes('create flag') || (text.includes('manage') && btn.closest('.data-table'))) {
+            e.preventDefault();
+            openModal('manageFlag');
+            return;
+        }
+
+        // Support Tickets
+        if (text.includes('create ticket')) {
+            e.preventDefault();
+            openModal('createTicket');
+            return;
+        }
+
+        // Partners
+        if (text.includes('add partner') || text.includes('edit profile')) {
+            e.preventDefault();
+            openModal('managePartner');
             return;
         }
 
@@ -360,7 +400,10 @@ function submitModal(type) {
         editDetail: 'Changes saved successfully!',
         confirmDelete: 'Item deleted successfully.',
         confirmPause: 'Subscription paused.',
-        filter: 'Filters applied.'
+        filter: 'Filters applied.',
+        manageFlag: 'Feature flag saved successfully!',
+        createTicket: 'Support ticket created successfully!',
+        managePartner: 'Partner profile saved successfully!'
     };
     closeModal();
     setTimeout(function () {
@@ -587,6 +630,65 @@ function _getModalHTML(type, data) {
             '  </div>',
             '</div>'
         ].join('\n'), 'editDetail', 'Save Changes'),
+
+        manageFlag: _modalWrap('Manage Feature Flag', [
+            '<div class="form-grid cols-1">',
+            '  <div class="form-group">',
+            '    <label class="form-label">Flag Name</label>',
+            '    <input type="text" class="form-input" placeholder="e.g. New Dashboard V2">',
+            '  </div>',
+            '  <div class="form-group">',
+            '    <label class="form-label">Key</label>',
+            '    <input type="text" class="form-input" placeholder="e.g. dashboard_v2_enabled">',
+            '  </div>',
+            '  <div class="form-group">',
+            '    <label class="form-label">Target Plan</label>',
+            '    <select class="form-select"><option>All Plans</option><option>Enterprise Only</option></select>',
+            '  </div>',
+            '  <div class="form-group">',
+            '    <label class="form-label">Rollout Percentage</label>',
+            '    <input type="range" style="width:100%" min="0" max="100" value="0">',
+            '  </div>',
+            '</div>'
+        ].join('\n'), 'manageFlag', 'Save Feature Flag'),
+
+        createTicket: _modalWrap('Create Support Ticket', [
+            '<div class="form-grid cols-1">',
+            '  <div class="form-group">',
+            '    <label class="form-label">Customer / Account</label>',
+            '    <select class="form-select"><option>Select Account</option><option>Acme Corp</option><option>TechFlow Inc</option></select>',
+            '  </div>',
+            '  <div class="form-group">',
+            '    <label class="form-label">Subject</label>',
+            '    <input type="text" class="form-input" placeholder="Issue summary">',
+            '  </div>',
+            '  <div class="form-group">',
+            '    <label class="form-label">Priority</label>',
+            '    <select class="form-select"><option>Low</option><option>Normal</option><option>High</option><option>Urgent</option></select>',
+            '  </div>',
+            '  <div class="form-group">',
+            '    <label class="form-label">Description</label>',
+            '    <textarea class="form-textarea" rows="3" placeholder="Detailed description of the issue..."></textarea>',
+            '  </div>',
+            '</div>'
+        ].join('\n'), 'createTicket', 'Submit Ticket'),
+
+        managePartner: _modalWrap('Manage Partner', [
+            '<div class="form-grid cols-1">',
+            '  <div class="form-group">',
+            '    <label class="form-label">Partner Name</label>',
+            '    <input type="text" class="form-input" placeholder="Company or Individual Name">',
+            '  </div>',
+            '  <div class="form-group">',
+            '    <label class="form-label">Type</label>',
+            '    <select class="form-select"><option>Affiliate</option><option>Reseller</option><option>Agency</option></select>',
+            '  </div>',
+            '  <div class="form-group">',
+            '    <label class="form-label">Commission Structure</label>',
+            '    <select class="form-select"><option>20% RevShare</option><option>30% RevShare</option><option>$10 CPA</option></select>',
+            '  </div>',
+            '</div>'
+        ].join('\n'), 'managePartner', 'Save Partner'),
 
         confirmDelete: _modalDanger(
             (data.action || 'delete').indexOf('cancel') >= 0 ? 'Cancel Subscription' : 'Confirm Deletion',
